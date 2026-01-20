@@ -158,3 +158,8 @@ footer {
   margin-bottom: 25px;
   border-radius: 12px;
 }
+section {
+  width: 100%;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
