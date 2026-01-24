@@ -182,3 +182,29 @@ section {
   transform: translateY(-2px);
   box-shadow: 0 6px 8px rgba(0,0,0,0.15);
 }
+/* Floating WhatsApp Button - All Pages */
+.floating-whatsapp {
+  position: fixed;
+  bottom: 20px; /* distance from bottom */
+  right: 20px;  /* distance from right */
+  width: 60px;  /* size of button */
+  height: 60px;
+  border-radius: 50%; /* circular */
+  background-color: #25D366; /* WhatsApp green */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 1000; /* make sure it stays on top */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.floating-whatsapp img {
+  width: 32px; /* icon size */
+  height: 32px;
+}
+
+.floating-whatsapp:hover {
+  transform: scale(1.1); /* small bounce effect */
+  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+}
