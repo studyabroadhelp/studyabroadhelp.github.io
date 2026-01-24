@@ -291,3 +291,34 @@ section {
     height: 16vw;
   }
 }
+/* Floating WhatsApp Button - Responsive */
+.floating-whatsapp {
+  position: fixed;
+  bottom: 4%;
+  right: 4%;
+  width: 12vw;
+  max-width: 70px;
+  min-width: 50px;
+  height: 12vw;
+  max-height: 70px;
+  min-height: 50px;
+  border-radius: 50%;
+  background-color: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 1000;
+  cursor: grab;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.floating-whatsapp:active {
+  cursor: grabbing;
+  transform: scale(1.1);
+}
+
+.floating-whatsapp img {
+  width: 60%;
+  height: 60%;
+}
