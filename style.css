@@ -208,3 +208,48 @@ section {
   transform: scale(1.1); /* small bounce effect */
   box-shadow: 0 6px 16px rgba(0,0,0,0.35);
 }
+/* Floating WhatsApp Button - Responsive */
+.floating-whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px; /* base size for desktop */
+  height: 50px;
+  border-radius: 50%;
+  background-color: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 1000;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.floating-whatsapp img {
+  width: 60%; /* responsive inside the button */
+  height: 60%;
+}
+
+.floating-whatsapp:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+}
+
+/* Mobile Adjustment */
+@media (max-width: 768px) {
+  .floating-whatsapp {
+    width: 45px;
+    height: 45px;
+    bottom: 15px;
+    right: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .floating-whatsapp {
+    width: 40px;
+    height: 40px;
+    bottom: 12px;
+    right: 12px;
+  }
+}
