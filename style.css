@@ -333,4 +333,27 @@ section {
 .nav-apply:hover {
   background: #218838;
 }
+/* Sticky Apply Now - Mobile */
+.sticky-apply {
+  display: none;
+  position: fixed;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ff5722;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  z-index: 9999;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Show only on mobile */
+@media (max-width: 768px) {
+  .sticky-apply {
+    display: block;
+  }
+}
 
