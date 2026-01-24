@@ -253,3 +253,41 @@ section {
     right: 12px;
   }
 }
+/* Floating WhatsApp Button - Responsive & Professional */
+.floating-whatsapp {
+  position: fixed;
+  bottom: 4%; /* use percentage for spacing */
+  right: 4%;
+  width: 12vw;  /* width proportional to viewport */
+  max-width: 70px; /* max size on large screens */
+  min-width: 50px; /* minimum size on small screens */
+  height: 12vw;  /* height proportional to viewport */
+  max-height: 70px;
+  min-height: 50px;
+  border-radius: 50%;
+  background-color: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 1000;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.floating-whatsapp img {
+  width: 60%; /* icon fits nicely inside button */
+  height: 60%;
+}
+
+.floating-whatsapp:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+}
+
+/* Optional smaller mobile adjustments */
+@media (max-width: 480px) {
+  .floating-whatsapp {
+    width: 16vw; /* slightly bigger relative to small screens */
+    height: 16vw;
+  }
+}
