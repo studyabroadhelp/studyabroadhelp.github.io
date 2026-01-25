@@ -225,6 +225,9 @@ and student life in Kyrgyzstan without agents or false promises.
 
     <button type="submit">Submit Application</button>
   </form>
+<p id="formMessage" style="display:none; color:green; font-weight:bold; margin-top:10px;">
+  ✅ Thank you! Your details have been submitted. We will contact you shortly on WhatsApp.
+</p>
 
   <p><strong>Note:</strong> No payment required at this stage.</p>
   </section>
@@ -322,6 +325,16 @@ function stopDrag() {
 <a href="#apply" class="sticky-apply">
   Apply Now
 </a>
+<script>
+const form = document.querySelector('.apply-form');
+const message = document.getElementById('formMessage');
+
+form.addEventListener('submit', function(e){
+  e.preventDefault(); // stop page refresh
+  message.style.display = 'block';
+  form.reset();
+});
+</script>
 
 </body>
 </html>
