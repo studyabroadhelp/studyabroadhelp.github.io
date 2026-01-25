@@ -233,33 +233,38 @@ and student life in Kyrgyzstan without agents or false promises.
     and correct guidance — nothing more, nothing less.
   </p>
 </section>
-    <form class="apply-form" 
-        action=https://formspree.io/f/mqeqkjoy
-        method="POST">
-<input type="text" name="student_name" placeholder="Student Name" required>
+  <form class="apply-form" 
+      id="applyForm"
+      action="https://formspree.io/f/mqeqkjoy"
+      method="POST">
 
-<input type="tel" name="mobile" placeholder="Mobile Number (WhatsApp)" required>
+  <input type="text" name="student_name" placeholder="Student Name" required disabled>
 
-<input type="email" name="email" placeholder="Email Address">
+  <input type="tel" name="mobile" placeholder="Mobile Number (WhatsApp)" required disabled>
 
-<select name="pcb_percentage" required>
-  <option value="">12th PCB Percentage</option>
-  <option>50% or Above</option>
-  <option>40%–49%</option>
-  <option>Below 40%</option>
+  <input type="email" name="email" placeholder="Email Address" disabled>
 
- </select>
+  <select name="pcb_percentage" required disabled>
+    <option value="">12th PCB Percentage</option>
+    <option>50% or Above</option>
+    <option>40%–49%</option>
+    <option>Below 40%</option>
+  </select>
 
-    <button type="submit">Submit Application</button>
-  </form>
+  <button type="submit" disabled>Submit Application</button>
+</form>
+
+<p id="applyLockMsg" style="display:none; color:red; font-weight:bold; margin-top:10px;">
+  ⚠️ Please check your eligibility first.
+</p>
+
 <p id="formMessage" style="display:none; color:green; font-weight:bold; margin-top:10px;">
   ✅ Thank you! Your details have been submitted successfully.
   Our team will contact you shortly on WhatsApp.
 </p>
 
-
-  <p><strong>Note:</strong> No payment required at this stage.</p>
-  </section>
+<p><strong>Note:</strong> No payment required at this stage.</p>
+  
   <!-- CONTACT SECTION -->
  <section id="contact">
    <h2>Contact Us</h2>
@@ -364,9 +369,11 @@ form.addEventListener('submit', function() {
   }, 300);
 });
 </script>
+
 <script>
 const eligibilityForm = document.getElementById('eligibilityForm');
 const result = document.getElementById('eligibilityResult');
+const applyInputs = document.querySelectorAll('#applyForm input, #applyForm select, #applyForm button');
 
 eligibilityForm.addEventListener('submit', function(e) {
   e.preventDefault();
@@ -384,12 +391,42 @@ eligibilityForm.addEventListener('submit', function(e) {
   ) {
     result.style.display = 'block';
     result.style.color = 'green';
-    result.innerHTML = "✅ You are eligible to study MBBS in Kyrgyzstan. Please proceed with the application.";
+    result.innerHTML = "✅ You are eligible to study MBBS in Kyrgyzstan.";
+
+    // Unlock Apply Form
+    applyInputs.forEach(el => el.disabled = false);
+    lockMsg.style.display = 'none';
+
+    // Scroll to Apply Form
+    applySection.scrollIntoView({ behavior: 'smooth' });
+
   } else {
     result.style.display = 'block';
     result.style.color = 'red';
-    result.innerHTML = "❌ Based on your selection, you are currently not eligible. Please review eligibility criteria or contact us for guidance.";
+    result.innerHTML = "❌ You are currently not eligible. Please contact us for guidance.";
   }
+});
+</script>
+<script>
+const applySection = document.getElementById('apply');
+const eligibilitySection = document.getElementById('eligibility');
+const applyForm = document.getElementById('applyForm');
+const lockMsg = document.getElementById('applyLockMsg');
+
+function scrollToEligibility() {
+  lockMsg.style.display = 'block';
+  eligibilitySection.scrollIntoView({ behavior: 'smooth' });
+}
+
+// Intercept all Apply links
+document.querySelectorAll('a[href="#apply"]').forEach(link => {
+  link.addEventListener('click', function(e) {
+    const isLocked = applyForm.querySelector('button').disabled;
+    if (isLocked) {
+      e.preventDefault();
+      scrollToEligibility();
+    }
+  });
 });
 </script>
 
