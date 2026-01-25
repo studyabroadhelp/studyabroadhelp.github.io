@@ -146,26 +146,33 @@ and student life in Kyrgyzstan without agents or false promises.
   <hr>
 <section id="apply">
   <h2>Apply Now</h2>
- <form class="apply-form" 
-      id="applyForm"
-      action="https://formspree.io/f/mqeqkjoy"
-      method="POST">
+ <div id="applyFormWrapper" style="position:relative;">
 
-  <input type="text" name="student_name" placeholder="Student Name" required disabled>
+  <div id="applyOverlay"
+       style="position:absolute; top:0; left:0; width:100%; height:100%;
+              z-index:5; background:transparent; cursor:pointer;">
+  </div>
 
-  <input type="tel" name="mobile" placeholder="Mobile Number (WhatsApp)" required disabled>
+  <form class="apply-form"
+        id="applyForm"
+        action="https://formspree.io/f/mqeqkjoy"
+        method="POST">
 
-  <input type="email" name="email" placeholder="Email Address" disabled>
+    <input type="text" name="student_name" placeholder="Student Name" required disabled>
+    <input type="tel" name="mobile" placeholder="Mobile Number (WhatsApp)" required disabled>
+    <input type="email" name="email" placeholder="Email Address" disabled>
 
-  <select name="pcb_percentage" required disabled>
-    <option value="">12th PCB Percentage</option>
-    <option>50% or Above</option>
-    <option>40%–49%</option>
-    <option>Below 40%</option>
-  </select>
+    <select name="pcb_percentage" required disabled>
+      <option value="">12th PCB Percentage</option>
+      <option>50% or Above</option>
+      <option>40%–49%</option>
+      <option>Below 40%</option>
+    </select>
 
-  <button type="submit" disabled>Submit Application</button>
-</form>
+    <button type="submit" disabled>Submit Application</button>
+  </form>
+</div>
+
 
 <p id="applyLockMsg" style="display:none; color:red; font-weight:bold; margin-top:10px;">
   ⚠️ Please check your eligibility first.
@@ -367,37 +374,34 @@ const eligibilityForm = document.getElementById('eligibilityForm');
 const eligibilityResult = document.getElementById('eligibilityResult');
 
 const applyForm = document.getElementById('applyForm');
+const applyOverlay = document.getElementById('applyOverlay');
 const applyInputs = applyForm.querySelectorAll('input, select, button');
 
-const applySection = document.getElementById('apply');
 const eligibilitySection = document.getElementById('eligibility');
+const applySection = document.getElementById('apply');
 
 const lockMsg = document.getElementById('applyLockMsg');
 const formMessage = document.getElementById('formMessage');
 
-/* ===== APPLY LINK + APPLY FORM INTERCEPT ===== */
-function redirectToEligibility(e) {
-  const locked = applyForm.querySelector('button').disabled;
-  if (locked) {
-    e.preventDefault();
-    lockMsg.style.display = 'block';
-    eligibilitySection.scrollIntoView({ behavior: 'smooth' });
-  }
-}
+/* CLICK ON APPLY FORM OVERLAY */
+applyOverlay.addEventListener('click', () => {
+  lockMsg.style.display = 'block';
+  eligibilitySection.scrollIntoView({ behavior: 'smooth' });
+});
 
-/* Intercept Apply links */
+/* APPLY NOW LINKS INTERCEPT */
 document.querySelectorAll('a[href="#apply"]').forEach(link => {
-  link.addEventListener('click', redirectToEligibility);
+  link.addEventListener('click', function(e) {
+    if (applyForm.querySelector('button').disabled) {
+      e.preventDefault();
+      lockMsg.style.display = 'block';
+      eligibilitySection.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
 });
 
-/* Intercept Apply form clicks */
-applyInputs.forEach(el => {
-  el.addEventListener('focus', redirectToEligibility);
-  el.addEventListener('click', redirectToEligibility);
-});
-
-/* ===== ELIGIBILITY CHECK ===== */
-eligibilityForm.addEventListener('submit', function (e) {
+/* ELIGIBILITY CHECK */
+eligibilityForm.addEventListener('submit', function(e) {
   e.preventDefault();
 
   const pcb = document.getElementById('pcb').value;
@@ -418,13 +422,13 @@ eligibilityForm.addEventListener('submit', function (e) {
 
     /* UNLOCK APPLY FORM */
     applyInputs.forEach(el => el.disabled = false);
+    applyOverlay.style.display = 'none';
     lockMsg.style.display = 'none';
 
     /* SCROLL TO APPLY FORM */
     setTimeout(() => {
       applySection.scrollIntoView({ behavior: 'smooth' });
     }, 500);
-
   } else {
     eligibilityResult.style.display = 'block';
     eligibilityResult.style.color = 'red';
@@ -433,8 +437,8 @@ eligibilityForm.addEventListener('submit', function (e) {
   }
 });
 
-/* ===== APPLY FORM SUCCESS MESSAGE ===== */
-applyForm.addEventListener('submit', function () {
+/* APPLY FORM SUBMIT SUCCESS */
+applyForm.addEventListener('submit', function() {
   setTimeout(() => {
     formMessage.style.display = 'block';
   }, 300);
