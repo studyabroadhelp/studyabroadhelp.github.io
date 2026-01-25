@@ -361,7 +361,6 @@ function stopDrag() {
 </a>
 
 
-
 <script>
 /* ===== ELEMENT REFERENCES ===== */
 const eligibilityForm = document.getElementById('eligibilityForm');
@@ -376,16 +375,25 @@ const eligibilitySection = document.getElementById('eligibility');
 const lockMsg = document.getElementById('applyLockMsg');
 const formMessage = document.getElementById('formMessage');
 
-/* ===== APPLY LINK INTERCEPT ===== */
+/* ===== APPLY LINK + APPLY FORM INTERCEPT ===== */
+function redirectToEligibility(e) {
+  const locked = applyForm.querySelector('button').disabled;
+  if (locked) {
+    e.preventDefault();
+    lockMsg.style.display = 'block';
+    eligibilitySection.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+/* Intercept Apply links */
 document.querySelectorAll('a[href="#apply"]').forEach(link => {
-  link.addEventListener('click', function (e) {
-    const locked = applyForm.querySelector('button').disabled;
-    if (locked) {
-      e.preventDefault();
-      lockMsg.style.display = 'block';
-      eligibilitySection.scrollIntoView({ behavior: 'smooth' });
-    }
-  });
+  link.addEventListener('click', redirectToEligibility);
+});
+
+/* Intercept Apply form clicks */
+applyInputs.forEach(el => {
+  el.addEventListener('focus', redirectToEligibility);
+  el.addEventListener('click', redirectToEligibility);
 });
 
 /* ===== ELIGIBILITY CHECK ===== */
@@ -405,7 +413,8 @@ eligibilityForm.addEventListener('submit', function (e) {
   ) {
     eligibilityResult.style.display = 'block';
     eligibilityResult.style.color = 'green';
-    eligibilityResult.innerHTML = "✅ You are eligible to study MBBS in Kyrgyzstan.";
+    eligibilityResult.innerHTML =
+      "✅ You are eligible to study MBBS in Kyrgyzstan.";
 
     /* UNLOCK APPLY FORM */
     applyInputs.forEach(el => el.disabled = false);
