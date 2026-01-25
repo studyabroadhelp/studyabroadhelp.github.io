@@ -359,23 +359,37 @@ function stopDrag() {
 <a href="#apply" class="sticky-apply">
   Apply Now
 </a>
-<script>
-const form = document.querySelector('.apply-form');
-const message = document.getElementById('formMessage');
 
-form.addEventListener('submit', function() {
-  setTimeout(() => {
-    message.style.display = 'block';
-  }, 300);
-});
-</script>
+
 
 <script>
+/* ===== ELEMENT REFERENCES ===== */
 const eligibilityForm = document.getElementById('eligibilityForm');
-const result = document.getElementById('eligibilityResult');
-const applyInputs = document.querySelectorAll('#applyForm input, #applyForm select, #applyForm button');
+const eligibilityResult = document.getElementById('eligibilityResult');
 
-eligibilityForm.addEventListener('submit', function(e) {
+const applyForm = document.getElementById('applyForm');
+const applyInputs = applyForm.querySelectorAll('input, select, button');
+
+const applySection = document.getElementById('apply');
+const eligibilitySection = document.getElementById('eligibility');
+
+const lockMsg = document.getElementById('applyLockMsg');
+const formMessage = document.getElementById('formMessage');
+
+/* ===== APPLY LINK INTERCEPT ===== */
+document.querySelectorAll('a[href="#apply"]').forEach(link => {
+  link.addEventListener('click', function (e) {
+    const locked = applyForm.querySelector('button').disabled;
+    if (locked) {
+      e.preventDefault();
+      lockMsg.style.display = 'block';
+      eligibilitySection.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+
+/* ===== ELIGIBILITY CHECK ===== */
+eligibilityForm.addEventListener('submit', function (e) {
   e.preventDefault();
 
   const pcb = document.getElementById('pcb').value;
@@ -389,44 +403,32 @@ eligibilityForm.addEventListener('submit', function(e) {
     neet === 'yes' &&
     passport === 'yes'
   ) {
-    result.style.display = 'block';
-    result.style.color = 'green';
-    result.innerHTML = "✅ You are eligible to study MBBS in Kyrgyzstan.";
+    eligibilityResult.style.display = 'block';
+    eligibilityResult.style.color = 'green';
+    eligibilityResult.innerHTML = "✅ You are eligible to study MBBS in Kyrgyzstan.";
 
-    // Unlock Apply Form
+    /* UNLOCK APPLY FORM */
     applyInputs.forEach(el => el.disabled = false);
     lockMsg.style.display = 'none';
 
-    // Scroll to Apply Form
-    applySection.scrollIntoView({ behavior: 'smooth' });
+    /* SCROLL TO APPLY FORM */
+    setTimeout(() => {
+      applySection.scrollIntoView({ behavior: 'smooth' });
+    }, 500);
 
   } else {
-    result.style.display = 'block';
-    result.style.color = 'red';
-    result.innerHTML = "❌ You are currently not eligible. Please contact us for guidance.";
+    eligibilityResult.style.display = 'block';
+    eligibilityResult.style.color = 'red';
+    eligibilityResult.innerHTML =
+      "❌ You are currently not eligible. Please contact us for guidance.";
   }
 });
-</script>
-<script>
-const applySection = document.getElementById('apply');
-const eligibilitySection = document.getElementById('eligibility');
-const applyForm = document.getElementById('applyForm');
-const lockMsg = document.getElementById('applyLockMsg');
 
-function scrollToEligibility() {
-  lockMsg.style.display = 'block';
-  eligibilitySection.scrollIntoView({ behavior: 'smooth' });
-}
-
-// Intercept all Apply links
-document.querySelectorAll('a[href="#apply"]').forEach(link => {
-  link.addEventListener('click', function(e) {
-    const isLocked = applyForm.querySelector('button').disabled;
-    if (isLocked) {
-      e.preventDefault();
-      scrollToEligibility();
-    }
-  });
+/* ===== APPLY FORM SUCCESS MESSAGE ===== */
+applyForm.addEventListener('submit', function () {
+  setTimeout(() => {
+    formMessage.style.display = 'block';
+  }, 300);
 });
 </script>
 
