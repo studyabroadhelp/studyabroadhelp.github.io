@@ -1,1 +1,439 @@
-* { margin: 0; padding: 0; box-sizing: border-box; } html, body { width: 100%; overflow-x: hidden; } body { margin: 0; padding: 0; } nav { background-color: #ffffff; padding: 10px 0; box-shadow: 0 2px 6px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 100; } nav ul { list-style: none; display: flex; justify-content: center; margin: 0; padding: 0; flex-wrap: wrap; } nav ul li { margin: 5px 15px; } nav ul li a { text-decoration: none; color: #0d47a1; font-weight: bold; } nav ul li a:hover { text-decoration: underline; } body { font-family: Arial, Helvetica, sans-serif; margin: 0; background-color: #f5f7fa; color: #222; line-height: 1.6; } header { background-color: #0d47a1; color: white; padding: 30px 15px; text-align: center; } header h1 { margin: 0; font-size: 28px; } section { background: white; margin: 20px auto; padding: 20px; max-width: 900px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); } h2 { color: #0d47a1; border-bottom: 2px solid #eee; padding-bottom: 8px; } h3 { color: #333; } a.button { display: inline-block; background-color: #0d47a1; color: white; padding: 12px 18px; text-decoration: none; border-radius: 6px; margin-top: 10px; } a.button:hover { background-color: #08306b; } footer { text-align: center; padding: 20px; font-size: 14px; color: #666; } .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 15px; } .feature-box { background: #f0f4ff; padding: 15px; border-radius: 8px; font-weight: bold; text-align: center; border-left: 4px solid #0d47a1; } .hero { background: linear-gradient( rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55) ), url("images/hero.jpg") center/cover no-repeat; height: 75vh; display: flex; align-items: center; padding: 40px; } .hero-content { max-width: 700px; color: #ffffff; } .hero h1 { font-size: 42px; margin-bottom: 15px; } .hero p { font-size: 18px; margin-bottom: 25px; } .btn-primary { display: inline-block; background: #2563eb; color: #ffffff; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; } .btn-primary:hover { background: #1e40af; } .section-image { display: block; max-width: 700px; width: 90%; margin-left: auto; margin-right: auto; margin-top: 25px; margin-bottom: 25px; border-radius: 12px; } section { width: 100%; padding: 40px 20px; box-sizing: border-box; } /* WhatsApp Button Style */ .btn-whatsapp { display: inline-block; background-color: #25D366; /* WhatsApp green */ color: white; font-weight: bold; text-decoration: none; padding: 12px 24px; border-radius: 8px; transition: background-color 0.3s, transform 0.2s; font-size: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); } .btn-whatsapp:hover { background-color: #1ebe5d; /* darker green on hover */ transform: translateY(-2px); box-shadow: 0 6px 8px rgba(0,0,0,0.15); } /* Floating WhatsApp Button - All Pages */ .floating-whatsapp { position: fixed; bottom: 20px; /* distance from bottom */ right: 20px; /* distance from right */ width: 60px; /* size of button */ height: 60px; border-radius: 50%; /* circular */ background-color: #25D366; /* WhatsApp green */ display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 1000; /* make sure it stays on top */ transition: transform 0.3s, box-shadow 0.3s; } .floating-whatsapp img { width: 32px; /* icon size */ height: 32px; } .floating-whatsapp:hover { transform: scale(1.1); /* small bounce effect */ box-shadow: 0 6px 16px rgba(0,0,0,0.35); } /* Floating WhatsApp Button - Responsive */ .floating-whatsapp { position: fixed; bottom: 20px; right: 20px; width: 50px; /* base size for desktop */ height: 50px; border-radius: 50%; background-color: #25D366; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 1000; transition: transform 0.3s, box-shadow 0.3s; } .floating-whatsapp img { width: 60%; /* responsive inside the button */ height: 60%; } .floating-whatsapp:hover { transform: scale(1.1); box-shadow: 0 6px 16px rgba(0,0,0,0.35); } /* Mobile Adjustment */ @media (max-width: 768px) { .floating-whatsapp { width: 45px; height: 45px; bottom: 15px; right: 15px; } } @media (max-width: 480px) { .floating-whatsapp { width: 40px; height: 40px; bottom: 12px; right: 12px; } } /* Floating WhatsApp Button - Responsive & Professional */ .floating-whatsapp { position: fixed; bottom: 4%; /* use percentage for spacing */ right: 4%; width: 12vw; /* width proportional to viewport */ max-width: 70px; /* max size on large screens */ min-width: 50px; /* minimum size on small screens */ height: 12vw; /* height proportional to viewport */ max-height: 70px; min-height: 50px; border-radius: 50%; background-color: #25D366; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 1000; transition: transform 0.3s, box-shadow 0.3s; } .floating-whatsapp img { width: 60%; /* icon fits nicely inside button */ height: 60%; } .floating-whatsapp:hover { transform: scale(1.1); box-shadow: 0 6px 16px rgba(0,0,0,0.35); } /* Optional smaller mobile adjustments */ @media (max-width: 480px) { .floating-whatsapp { width: 16vw; /* slightly bigger relative to small screens */ height: 16vw; } } /* Floating WhatsApp Button - Responsive */ .floating-whatsapp { position: fixed; bottom: 4%; right: 4%; width: 12vw; max-width: 70px; min-width: 50px; height: 12vw; max-height: 70px; min-height: 50px; border-radius: 50%; background-color: #25D366; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 1000; cursor: grab; transition: transform 0.2s, box-shadow 0.2s; } .floating-whatsapp:active { cursor: grabbing; transform: scale(1.1); } .floating-whatsapp img { width: 60%; height: 60%; } .nav-apply { background: #28a745; color: #fff !important; padding: 8px 14px; border-radius: 6px; font-weight: bold; } .nav-apply:hover { background: #218838; } /* Sticky Apply Now - Mobile */ .sticky-apply { display: none; position: fixed; bottom: 15px; left: 50%; transform: translateX(-50%); background: #ff5722; color: #fff; padding: 14px 28px; border-radius: 30px; font-weight: bold; text-decoration: none; z-index: 9999; box-shadow: 0 4px 10px rgba(0,0,0,0.3); } /* Show only on mobile */ @media (max-width: 768px) { .sticky-apply { display: block; } } .apply-form { max-width: 400px; margin: auto; } .apply-form input, .apply-form select { width: 100%; padding: 10px; margin: 8px 0; } .apply-form button { width: 100%; padding: 12px; background: #28a745; color: #fff; border: none; font-size: 16px; cursor: pointer; } .apply-form button:hover { background: #218838; } .hero { width: 100%; height: 420px; /* FIXED LANDSCAPE HEIGHT */ background-image: url("images/hero.jpg"); background-size: cover; /* crop, not stretch */ background-position: center 20%; /* shows face, cuts legs */ background-repeat: no-repeat; display: flex; align-items: center; position: relative; } /* Soft morning light */ .hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient( rgba(255,255,255,0.25), rgba(0,0,0,0.45) ); } /* Text container */ .hero-content { position: relative; max-width: 650px; margin-left: 6%; color: #fff; } .hero-content h1 { font-size: 40px; line-height: 1.2; } .hero-content p { font-size: 16px; margin: 14px 0; } @media (max-width: 768px) { .hero { height: 320px; /* STILL LANDSCAPE */ } .hero-content { margin-left: 0; padding: 20px; text-align: center; } .hero-content h1 { font-size: 24px; } }
+* { margin: 0; 
+   padding: 0; 
+   box-sizing: border-box; 
+  }
+html, body { 
+  width: 100%; 
+  overflow-x: hidden;
+}
+
+body { 
+  margin: 0; 
+  padding: 0; 
+} 
+nav { 
+  background-color: #ffffff; 
+  padding: 10px 0; 
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08); 
+  position: sticky; 
+  top: 0; 
+  z-index: 100; 
+}
+
+nav ul { 
+  list-style: none; 
+  display: flex; 
+  justify-content: center; 
+  margin: 0; 
+  padding: 0; 
+  flex-wrap: wrap; 
+}
+
+nav ul li {
+  margin: 5px 15px; 
+}
+
+nav ul li a { 
+  text-decoration: none; 
+  color: #0d47a1; 
+  font-weight: bold; 
+}
+
+nav ul li a:hover { 
+  text-decoration: underline; 
+}
+
+body { 
+  font-family: Arial, Helvetica, sans-serif; 
+  margin: 0; 
+  background-color: #f5f7fa; 
+  color: #222; 
+  line-height: 1.6; 
+}
+
+header { 
+  background-color: #0d47a1; 
+  color: white; 
+  padding: 30px 15px; 
+  text-align: center; 
+}
+
+header h1 { 
+  margin: 0; 
+  font-size: 28px; 
+}
+
+section { 
+  background: white; 
+  margin: 20px auto; 
+  padding: 20px; 
+  max-width: 900px; 
+  border-radius: 8px; 
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08); 
+}
+
+h2 { 
+  color: #0d47a1; 
+  border-bottom: 2px solid #eee; 
+  padding-bottom: 8px; 
+} 
+
+h3 { 
+  color: #333; 
+} 
+
+a.button { 
+  display: inline-block; 
+  background-color: #0d47a1; 
+  color: white; 
+  padding: 12px 18px; 
+  text-decoration: none; 
+  border-radius: 6px; 
+  margin-top: 10px;
+}
+
+a.button:hover { 
+  background-color: #08306b; 
+} 
+
+footer { 
+  text-align: center; 
+  padding: 20px; 
+  font-size: 14px; 
+  color: #666;
+} 
+.features { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, 
+ minmax(250px, 1fr)); 
+  gap: 15px; 
+  margin-top: 15px; 
+}
+
+.feature-box { 
+  background: #f0f4ff; 
+  padding: 15px; 
+  border-radius: 8px; 
+  font-weight: bold; 
+  text-align: center; 
+  border-left: 4px solid #0d47a1; 
+} 
+.hero { 
+  background: linear-gradient( 
+    rgba(0, 0, 0, 0.55), 
+    rgba(0, 0, 0, 0.55) 
+  ), 
+    url("images/hero.jpg") center/cover no-repeat; 
+  height: 75vh; 
+  display: flex; 
+  align-items: center; 
+  padding: 40px;
+} 
+.hero-content { 
+  max-width: 700px; 
+  color: #ffffff; 
+} 
+.hero h1 { 
+  font-size: 42px; 
+  margin-bottom: 15px; 
+} 
+.hero p { 
+  font-size: 18px; 
+  margin-bottom: 25px; 
+} 
+.btn-primary { 
+  display: inline-block; 
+  background: #2563eb; 
+  color: #ffffff; 
+  padding: 14px 28px; 
+  border-radius: 8px; 
+  text-decoration: none; 
+  font-weight: 600; 
+} 
+.btn-primary:hover { 
+  background: #1e40af; 
+} 
+.section-image { 
+  display: block; 
+  max-width: 700px; 
+  width: 90%; 
+  margin-left: auto; 
+  margin-right: auto; 
+  margin-top: 25px; 
+  margin-bottom: 25px; 
+  border-radius: 12px; 
+} 
+section { 
+  width: 100%; 
+  padding: 40px 20px; 
+  box-sizing: border-box; 
+} 
+/* WhatsApp Button Style */ 
+.btn-whatsapp { 
+  display: inline-block; 
+  background-color: #25D366; /* WhatsApp green */ 
+  color: white; 
+  font-weight: bold; 
+  text-decoration: none; 
+  padding: 12px 24px; 
+  border-radius: 8px; 
+  transition: background-color 0.3s, transform 0.2s; 
+  font-size: 16px; 
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+} 
+.btn-whatsapp:hover { 
+  background-color: #1ebe5d; /* darker green on 
+  hover */ 
+   transform: translateY(-2px); 
+   box-shadow: 0 6px 8px rgba(0,0,0,0.15); 
+} 
+/* Floating WhatsApp Button - All Pages */ 
+.floating-whatsapp { 
+  position: fixed; 
+  bottom: 20px; /* distance from bottom */ 
+  right: 20px; /* distance from right */ 
+  width: 60px; /* size of button */ 
+  height: 60px; 
+  border-radius: 50%; /* circular */ 
+  background-color: #25D366; /* WhatsApp green */ 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3); 
+  z-index: 1000; /* make sure it stays on top */ 
+  transition: transform 0.3s, box-shadow 0.3s; 
+} 
+
+.floating-whatsapp img { 
+  width: 32px; /* icon size */ 
+  height: 32px; 
+} 
+
+.floating-whatsapp:hover { 
+  transform: scale(1.1); /* small bounce effect */ 
+  box-shadow: 0 6px 16px rgba(0,0,0,0.35); 
+} 
+/* Floating WhatsApp Button - Responsive */ 
+.floating-whatsapp { 
+  position: fixed; 
+  bottom: 20px; 
+  right: 20px; 
+  width: 50px; /* base size for desktop */ 
+  height: 50px; 
+  border-radius: 50%; 
+  background-color: #25D366; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3); 
+  z-index: 1000; 
+  transition: transform 0.3s, box-shadow 0.3s; 
+} 
+
+.floating-whatsapp img { 
+  width: 60%; /* responsive inside the button */ 
+  height: 60%; 
+} 
+
+.floating-whatsapp:hover { 
+  transform: scale(1.1); 
+  box-shadow: 0 6px 16px rgba(0,0,0,0.35); 
+} 
+
+/* Mobile Adjustment */ 
+@media (max-width: 768px) { 
+  .floating-whatsapp { 
+    width: 45px; 
+    height: 45px; 
+    bottom: 15px; 
+    right: 15px; 
+  } 
+} 
+
+@media (max-width: 480px) { 
+  .floating-whatsapp { 
+    width: 40px; 
+    height: 40px; 
+    bottom: 12px; 
+    right: 12px; 
+  } 
+} 
+/* Floating WhatsApp Button - Responsive & 
+Professional */ 
+.floating-whatsapp { 
+  position: fixed; 
+  bottom: 4%; /* use percentage for spacing */ 
+  right: 4%; 
+  width: 12vw; /* width proportional to viewport */ 
+  max-width: 70px; /* max size on large screens */ 
+  min-width: 50px; /* minimum size on small screens 
+  */ 
+  height: 12vw; /* height proportional to viewport */ 
+  max-height: 70px; 
+  min-height: 50px; 
+  border-radius: 50%; 
+  background-color: #25D366; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3); 
+  z-index: 1000; 
+  transition: transform 0.3s, box-shadow 0.3s; 
+} 
+
+.floating-whatsapp img { 
+  width: 60%; /* icon fits nicely inside button */ 
+  height: 60%; 
+} 
+.floating-whatsapp:hover { 
+  transform: scale(1.1); 
+  box-shadow: 0 6px 16px rgba(0,0,0,0.35); 
+} 
+/* Optional smaller mobile adjustments */ 
+@media (max-width: 480px) { 
+  .floating-whatsapp { 
+    width: 16vw; /* slightly bigger relative to small 
+    screens */ height: 16vw; 
+  } 
+} 
+/* Floating WhatsApp Button - Responsive */ 
+.floating-whatsapp { 
+  position: fixed; 
+  bottom: 4%; 
+  right: 4%; 
+  width: 12vw; 
+  max-width: 70px; 
+  min-width: 50px; 
+  height: 12vw; 
+  max-height: 70px; 
+  min-height: 50px; 
+  border-radius: 50%; 
+  background-color: #25D366; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3); 
+  z-index: 1000; 
+  cursor: grab; 
+  transition: transform 0.2s, box-shadow 0.2s; 
+} 
+
+.floating-whatsapp:active { 
+  cursor: grabbing; 
+  transform: scale(1.1); 
+} 
+.floating-whatsapp img { 
+  width: 60%; 
+  height: 60%; 
+} 
+.nav-apply { 
+  background: #28a745; 
+  color: #fff !important; 
+  padding: 8px 14px; 
+  border-radius: 6px; 
+  font-weight: bold; 
+} 
+
+.nav-apply:hover { 
+  background: #218838; 
+} 
+/* Sticky Apply Now - Mobile */ 
+.sticky-apply { 
+  display: none; 
+  position: fixed; 
+  bottom: 15px; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  background: #ff5722; 
+  color: #fff; 
+  padding: 14px 28px; 
+  border-radius: 30px; 
+  font-weight: bold; 
+  text-decoration: none; 
+  z-index: 9999; 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3); 
+} 
+
+/* Show only on mobile */ 
+@media (max-width: 768px) { 
+  .sticky-apply { 
+    display: block; 
+  } 
+} 
+.apply-form { 
+  max-width: 400px; 
+  margin: auto; 
+} 
+.apply-form input, 
+.apply-form select { 
+  width: 100%; 
+  padding: 10px; 
+  margin: 8px 0; 
+} 
+
+.apply-form button { 
+  width: 100%; 
+  padding: 12px; 
+  background: #28a745; 
+  color: #fff; 
+  border: none; 
+  font-size: 16px; 
+  cursor: pointer; 
+} 
+
+.apply-form button:hover { 
+  background: #218838; 
+} 
+.hero { 
+  width: 100%; 
+  height: 420px; /* FIXED LANDSCAPE HEIGHT 
+  */ 
+   background-image: url("images/hero.jpg"); 
+  background-size: cover; /* crop, not stretch */ 
+  background-position: center 20%; /* shows face, 
+cuts legs */ 
+  background-repeat: no-repeat; 
+  display: flex; 
+  align-items: center; 
+  position: relative; 
+} 
+
+/* Soft morning light */ 
+.hero::before { 
+  content: ""; 
+  position: absolute; 
+  inset: 0; 
+  background: linear-gradient( 
+    rgba(255,255,255,0.25), 
+    rgba(0,0,0,0.45) 
+  ); 
+} 
+/* Text container */ 
+.hero-content { 
+  position: relative; 
+  max-width: 650px; 
+  margin-left: 6%; 
+  color: #fff; 
+} 
+.hero-content h1 { 
+  font-size: 40px; 
+  line-height: 1.2; 
+} 
+.hero-content p { 
+  font-size: 16px; 
+  margin: 14px 0; 
+} 
+@media (max-width: 768px) { 
+  .hero { 
+    height: 320px; /* STILL LANDSCAPE */ 
+  } 
+  
+  .hero-content { 
+    margin-left: 0; 
+    padding: 20px; 
+    text-align: center; 
+  } 
+  .hero-content h1 { 
+    font-size: 24px; 
+  } 
+}
