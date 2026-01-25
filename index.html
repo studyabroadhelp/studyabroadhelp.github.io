@@ -210,24 +210,30 @@ and student life in Kyrgyzstan without agents or false promises.
     and correct guidance — nothing more, nothing less.
   </p>
 </section>
+    <form class="apply-form" 
+        action=https://formspree.io/f/mqeqkjoy
+        method="POST">
+<input type="text" name="student_name" placeholder="Student Name" required>
 
-  <form class="apply-form">
-    <input type="text" placeholder="Student Name" required>
-    <input type="tel" placeholder="Mobile Number (WhatsApp)" required>
-    <input type="email" placeholder="Email Address">
-    
-    <select required>
-      <option value="">12th PCB Percentage</option>
-      <option>50% or Above</option>
-      <option>40%–49%</option>
-      <option>Below 40%</option>
-    </select>
+<input type="tel" name="mobile" placeholder="Mobile Number (WhatsApp)" required>
+
+<input type="email" name="email" placeholder="Email Address">
+
+<select name="pcb_percentage" required>
+  <option value="">12th PCB Percentage</option>
+  <option>50% or Above</option>
+  <option>40%–49%</option>
+  <option>Below 40%</option>
+
+ </select>
 
     <button type="submit">Submit Application</button>
   </form>
 <p id="formMessage" style="display:none; color:green; font-weight:bold; margin-top:10px;">
-  ✅ Thank you! Your details have been submitted. We will contact you shortly on WhatsApp.
+  ✅ Thank you! Your details have been submitted successfully.
+  Our team will contact you shortly on WhatsApp.
 </p>
+
 
   <p><strong>Note:</strong> No payment required at this stage.</p>
   </section>
@@ -329,10 +335,10 @@ function stopDrag() {
 const form = document.querySelector('.apply-form');
 const message = document.getElementById('formMessage');
 
-form.addEventListener('submit', function(e){
-  e.preventDefault(); // stop page refresh
-  message.style.display = 'block';
-  form.reset();
+form.addEventListener('submit', function() {
+  setTimeout(() => {
+    message.style.display = 'block';
+  }, 300);
 });
 </script>
 
