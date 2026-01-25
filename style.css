@@ -1,37 +1,42 @@
+/* ===============================
+   BASIC RESET
+================================ */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 html, body {
   width: 100%;
   overflow-x: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f5f7fa;
+  color: #222;
+  line-height: 1.6;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-}
+/* ===============================
+   NAVBAR
+================================ */
 nav {
-  background-color: #ffffff;
-  padding: 10px 0;
+  background: #ffffff;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
 }
 
 nav ul {
   list-style: none;
   display: flex;
   justify-content: center;
-  margin: 0;
-  padding: 0;
   flex-wrap: wrap;
+  padding: 10px 0;
 }
 
 nav ul li {
-  margin: 5px 15px;
+  margin: 6px 15px;
 }
 
 nav ul li a {
@@ -44,63 +49,102 @@ nav ul li a:hover {
   text-decoration: underline;
 }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-  background-color: #ffffff;
-  color: #222;
-  line-height: 1.6;
+.nav-apply {
+  background: #28a745;
+  color: #fff !important;
+  padding: 8px 14px;
+  border-radius: 6px;
 }
 
-
-header {
-  background-color: #0d47a1;
-  color: white;
-  padding: 30px 15px;
-  text-align: center;
+/* ===============================
+   HERO SECTION (LANDSCAPE)
+================================ */
+.hero {
+  width: 100%;
+  height: 420px;
+  background-image: url("images/hero.jpg");
+  background-size: cover;
+  background-position: center 20%;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
-header h1 {
-  margin: 0;
-  font-size: 28px;
+/* Overlay for morning light */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(255,255,255,0.25),
+    rgba(0,0,0,0.45)
+  );
 }
 
+.hero-content {
+  position: relative;
+  max-width: 650px;
+  margin-left: 6%;
+  color: #ffffff;
+}
 
+.hero-content h1 {
+  font-size: 40px;
+  line-height: 1.2;
+}
+
+.hero-content p {
+  font-size: 16px;
+  margin: 14px 0;
+}
+
+.btn-primary {
+  display: inline-block;
+  background: #2563eb;
+  color: #ffffff;
+  padding: 14px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.btn-primary:hover {
+  background: #1e40af;
+}
+
+/* ===============================
+   GENERAL SECTIONS
+================================ */
+section {
+  width: 100%;
+  padding: 40px 20px;
+  background: #ffffff;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* Headings */
 h2 {
   color: #0d47a1;
-  border-bottom: 2px solid #eee;
-  padding-bottom: 8px;
+  margin-bottom: 15px;
 }
 
 h3 {
-  color: #333;
+  margin-top: 15px;
 }
 
-a.button {
-  display: inline-block;
-  background-color: #0d47a1;
-  color: white;
-  padding: 12px 18px;
-  text-decoration: none;
-  border-radius: 6px;
-  margin-top: 10px;
-}
-
-a.button:hover {
-  background-color: #08306b;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  font-size: 14px;
-  color: #666;
-}
+/* ===============================
+   FEATURES
+================================ */
 .features {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 15px;
-  margin-top: 15px;
+  margin-top: 20px;
 }
 
 .feature-box {
@@ -111,148 +155,24 @@ footer {
   text-align: center;
   border-left: 4px solid #0d47a1;
 }
-.hero {
-  background: linear-gradient(
-      rgba(0, 0, 0, 0.55),
-      rgba(0, 0, 0, 0.55)
-    ),
-    url("images/hero.jpg") center/cover no-repeat;
-  height: 75vh;
-  display: flex;
-  align-items: center;
-  padding: 40px;
-}
 
-.hero-content {
-  max-width: 700px;
-  color: #ffffff;
-}
-
-.hero h1 {
-  font-size: 42px;
-  margin-bottom: 15px;
-}
-
-.hero p {
-  font-size: 18px;
-  margin-bottom: 25px;
-}
-
-.btn-primary {
-  display: inline-block;
-  background: #2563eb;
-  color: #ffffff;
-  padding: 14px 28px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.btn-primary:hover {
-  background: #1e40af;
-}
+/* ===============================
+   IMAGES
+================================ */
 .section-image {
   display: block;
+  width: 100%;
   max-width: 700px;
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 25px;
-  margin-bottom: 25px;
+  margin: 25px auto;
   border-radius: 12px;
 }
-section {
-  width: 100%;
-  padding: 40px 20px;
-  box-sizing: border-box;
-}
-/* WhatsApp Button Style */
-.btn-whatsapp {
-  display: inline-block;
-  background-color: #25D366; /* WhatsApp green */
-  color: white;
-  font-weight: bold;
-  text-decoration: none;
-  padding: 12px 24px;
-  border-radius: 8px;
-  transition: background-color 0.3s, transform 0.2s;
-  font-size: 16px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
 
-.btn-whatsapp:hover {
-  background-color: #1ebe5d; /* darker green on hover */
-  transform: translateY(-2px);
-  box-shadow: 0 6px 8px rgba(0,0,0,0.15);
-}
-
-}
-/* Floating WhatsApp Button - Responsive */
-.floating-whatsapp {
-  position: fixed;
-  bottom: 4%;
-  right: 4%;
-  width: 12vw;
-  max-width: 70px;
-  min-width: 50px;
-  height: 12vw;
-  max-height: 70px;
-  min-height: 50px;
-  border-radius: 50%;
-  background-color: #25D366;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  z-index: 1000;
-}
-
-.floating-whatsapp:active {
-  cursor: grabbing;
-  transform: scale(1.1);
-}
-
-.floating-whatsapp img {
-  width: 60%;
-  height: 60%;
-}
-.nav-apply {
-  background: #28a745;
-  color: #fff !important;
-  padding: 8px 14px;
-  border-radius: 6px;
-  font-weight: bold;
-}
-
-.nav-apply:hover {
-  background: #218838;
-}
-/* Sticky Apply Now - Mobile */
-.sticky-apply {
-  display: none;
-  position: fixed;
-  bottom: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #ff5722;
-  color: #fff;
-  padding: 14px 28px;
-  border-radius: 30px;
-  font-weight: bold;
-  text-decoration: none;
-  z-index: 9999;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-/* Show only on mobile */
-@media (max-width: 768px) {
-  .sticky-apply {
-    display: block;
-  }
-}
+/* ===============================
+   APPLY FORM
+================================ */
 .apply-form {
   max-width: 400px;
-  margin: auto;
+  margin: 20px auto;
 }
 
 .apply-form input,
@@ -275,49 +195,53 @@ section {
 .apply-form button:hover {
   background: #218838;
 }
-.hero {
-  width: 100%;
-  height: 420px;              /* FIXED LANDSCAPE HEIGHT */
-  background-image: url("images/hero.jpg");
-  background-size: cover;     /* crop, not stretch */
-  background-position: center 20%; /* shows face, cuts legs */
-  background-repeat: no-repeat;
+
+/* ===============================
+   WHATSAPP BUTTON
+================================ */
+.floating-whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 55px;
+  height: 55px;
+  background: #25D366;
+  border-radius: 50%;
   display: flex;
   align-items: center;
-  position: relative;
+  justify-content: center;
+  z-index: 1000;
 }
 
-/* Soft morning light */
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    rgba(255,255,255,0.25),
-    rgba(0,0,0,0.45)
-  );
+.floating-whatsapp img {
+  width: 60%;
+  height: 60%;
 }
 
-/* Text container */
-.hero-content {
-  position: relative;
-  max-width: 650px;
-  margin-left: 6%;
-  color: #fff;
+/* ===============================
+   STICKY APPLY (MOBILE)
+================================ */
+.sticky-apply {
+  display: none;
+  position: fixed;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ff5722;
+  color: #ffffff;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  z-index: 9999;
 }
 
-.hero-content h1 {
-  font-size: 40px;
-  line-height: 1.2;
-}
-
-.hero-content p {
-  font-size: 16px;
-  margin: 14px 0;
-}
+/* ===============================
+   MOBILE RESPONSIVE
+================================ */
 @media (max-width: 768px) {
   .hero {
-    height: 320px;   /* STILL LANDSCAPE */
+    height: 320px;
   }
 
   .hero-content {
@@ -328,5 +252,9 @@ section {
 
   .hero-content h1 {
     font-size: 24px;
+  }
+
+  .sticky-apply {
+    display: block;
   }
 }
