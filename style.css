@@ -168,7 +168,25 @@ section {
   padding: 40px 20px; 
   box-sizing: border-box; 
 } 
- 
+ /* WhatsApp Button Style */ 
+.btn-whatsapp { 
+  display: inline-block; 
+  background-color: #25D366; /* WhatsApp green */ 
+  color: white; 
+  font-weight: bold; 
+  text-decoration: none; 
+  padding: 12px 24px; 
+  border-radius: 8px; 
+  transition: background-color 0.3s, transform 0.2s; 
+  font-size: 16px; 
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+} 
+.btn-whatsapp:hover { 
+  background-color: #1ebe5d; /* darker green on 
+  hover */ 
+   transform: translateY(-2px); 
+   box-shadow: 0 6px 8px rgba(0,0,0,0.15); 
+}
 /* Floating WhatsApp Button - All Pages */ 
 .floating-whatsapp { 
   position: fixed; 
