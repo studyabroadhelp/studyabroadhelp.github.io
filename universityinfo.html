@@ -16,3 +16,144 @@
     </div>
   </div>
 </section>
+<nav> 
+ <ul> 
+  <li><a href="#home">Home</a></li> 
+  <li><a href="why-kyrgyzstan.html">Why Kyrgyzstan</a></li> 
+  <li><a href="universityinfo.html">University Info</a></li>
+  <li><a href="universityinfo.html">University Info</a></li>
+  <li><a href="fees.html">Fees</a></li> 
+  <li><a href="admissionprocess.html">Admission Process</a></li> 
+  <li><a href="#recognition">Recognition & Validity</a></li> 
+  <li><a href="#apply" class="nav-apply">Apply Now</a></li> 
+  <li><a href="#contact">Contact</a></li> 
+ </ul> 
+</nav>
+<!-- Universities Section -->
+<section id="universities">
+  <h2>Top Medical Universities in Kyrgyzstan</h2>
+
+  <div class="university-card">
+    <img src="images/osh.jpg" alt="Osh International Medical University">
+    <h3>Osh International Medical University</h3>
+    <p>
+      Established in 1993, located in Osh city. WHO & NMC recognized. 
+      Offers English medium MBBS program with affordable tuition and good hospital exposure.
+    </p>
+    <a href="#apply" class="btn-primary">Apply Now</a>
+  </div>
+
+  <div class="university-card">
+    <img src="images/kstmu.jpg" alt="Kyrgyz State Medical University">
+    <h3>Kyrgyz State Medical University</h3>
+    <p>
+      One of the oldest medical universities in Kyrgyzstan, established in 1939. 
+      Known for experienced faculty, modern labs, and international student programs.
+    </p>
+    <a href="#apply" class="btn-primary">Apply Now</a>
+  </div>
+
+  <div class="university-card">
+    <img src="images/ismu.jpg" alt="International School of Medicine, Bishkek">
+    <h3>International School of Medicine, Bishkek</h3>
+    <p>
+      Located in the capital city, offers affordable MBBS in English. 
+      Focus on practical hospital training and international exposure.
+    </p>
+    <a href="#apply" class="btn-primary">Apply Now</a>
+  </div>
+</section>
+
+<!-- Apply Section -->
+<section id="apply">
+  <h2>Apply Now for MBBS in Kyrgyzstan</h2>
+  <p>
+    Interested students can apply through our platform. Free initial guidance and transparent information provided.
+  </p>
+  <a href="index.html#apply" class="btn-primary">Go to Apply Form</a>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+  <h2>Contact Us</h2>
+  <p>For guidance and complete university info, contact us directly on WhatsApp.</p>
+  <a href="https://wa.me/919102467809" target="_blank" class="btn-whatsapp">
+    Contact on WhatsApp
+  </a>
+</section>
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/919102467809" target="_blank" class="floating-whatsapp" id="whatsappBtn">
+  <img src="images/whatsapp-icon.png" alt="WhatsApp">
+</a>
+
+<script>
+// Copy your existing floating WhatsApp JS here
+const whatsappBtn = document.getElementById('whatsappBtn');
+let isDragging = false;
+let offsetX, offsetY;
+
+whatsappBtn.addEventListener('mousedown', startDrag);
+whatsappBtn.addEventListener('touchstart', startDrag);
+
+function startDrag(e) {
+  isDragging = true;
+  e.preventDefault();
+  const rect = whatsappBtn.getBoundingClientRect();
+
+  if(e.type === 'touchstart'){
+    offsetX = e.touches[0].clientX - rect.left;
+    offsetY = e.touches[0].clientY - rect.top;
+  } else {
+    offsetX = e.clientX - rect.left;
+    offsetY = e.clientY - rect.top;
+  }
+
+  document.addEventListener('mousemove', drag);
+  document.addEventListener('mouseup', stopDrag);
+  document.addEventListener('touchmove', drag);
+  document.addEventListener('touchend', stopDrag);
+}
+
+function drag(e) {
+  if(!isDragging) return;
+
+  let clientX, clientY;
+  if(e.type === 'touchmove'){
+    clientX = e.touches[0].clientX;
+    clientY = e.touches[0].clientY;
+  } else {
+    clientX = e.clientX;
+    clientY = e.clientY;
+  }
+
+  let left = clientX - offsetX;
+  let top = clientY - offsetY;
+
+  const btnWidth = whatsappBtn.offsetWidth;
+  const btnHeight = whatsappBtn.offsetHeight;
+  const maxLeft = window.innerWidth - btnWidth;
+  const maxTop = window.innerHeight - btnHeight;
+
+  if(left < 0) left = 0;
+  if(top < 0) top = 0;
+  if(left > maxLeft) left = maxLeft;
+  if(top > maxTop) top = maxTop;
+
+  whatsappBtn.style.left = left + 'px';
+  whatsappBtn.style.top = top + 'px';
+  whatsappBtn.style.right = 'auto';
+  whatsappBtn.style.bottom = 'auto';
+}
+
+function stopDrag() {
+  isDragging = false;
+  document.removeEventListener('mousemove', drag);
+  document.removeEventListener('mouseup', stopDrag);
+  document.removeEventListener('touchmove', drag);
+  document.removeEventListener('touchend', stopDrag);
+}
+</script>
+
+</body>
+</html>
