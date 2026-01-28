@@ -1,3 +1,64 @@
+/* FIXED NAVBAR – ALWAYS VISIBLE */
+.main-navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #0d47a1; /* change color here */
+  z-index: 99999;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.logo a {
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Menu */
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 22px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 6px 4px;
+  transition: opacity 0.3s ease;
+}
+
+.nav-menu li a:hover {
+  opacity: 0.8;
+}
+
+/* Prevent content hiding behind navbar */
+body {
+  padding-top: 70px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 900px) {
+  .nav-menu {
+    display: none; /* later you can add hamburger */
+  }
+}
+
 * { margin: 0; 
    padding: 0; 
    box-sizing: border-box; 
