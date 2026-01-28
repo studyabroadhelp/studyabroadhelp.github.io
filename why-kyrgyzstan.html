@@ -31,8 +31,8 @@
     <li><a href="index.html#contact">Contact</a></li>
   </ul>
 </nav>
-<!-- INTRODUCTION -->
-<section class="intro-section">
+<!-- INTRODUCTION : HIGHLIGHT CARD -->
+<section class="intro-card">
   <h2 class="intro-title">Honest Guidance for Indian Students</h2>
   <div class="intro-divider"></div>
 
@@ -59,14 +59,22 @@
 </section>
 
 <style>
-/* Intro Section Styling */
-.intro-section {
+/* Highlight Card */
+.intro-card {
   max-width: 900px;
-  margin: auto;
+  margin: 40px auto;
+  padding: 40px 30px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  font-family: Arial, Helvetica, sans-serif;
+  color: #222;
   text-align: center;
+  animation: fadeUp 0.8s ease-out;
 }
 
 .intro-title {
+  color: #0d47a1;
   margin-bottom: 8px;
 }
 
@@ -78,18 +86,36 @@
   border-radius: 2px;
 }
 
-/* Desktop professionalism: left-align text only */
+.intro-card p {
+  line-height: 1.7;
+  margin-bottom: 14px;
+  font-size: 16px;
+}
+
+/* Desktop: professional left alignment */
 @media (min-width: 992px) {
-  .intro-section {
+  .intro-card {
     text-align: left;
+    padding: 50px 60px;
   }
 
   .intro-divider {
     margin-left: 0;
   }
 }
-</style>
 
+/* Subtle professional animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
 
 <!-- FEATURE BOXES SECTION -->
 <section>
