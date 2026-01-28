@@ -16,7 +16,19 @@
     </div>
   </div>
 </section>
-  
+ <nav> 
+ <ul> 
+  <li><a href="#home">Home</a></li> 
+  <li><a href="why-kyrgyzstan.html">Why Kyrgyzstan</a></li> 
+  <li><a href="universityinfo.html">University Info</a></li>
+  <li><a href="universityinfo.html">University Info</a></li>
+  <li><a href="fees.html">Fees</a></li> 
+  <li><a href="admissionprocess.html">Admission Process</a></li> 
+  <li><a href="#recognition">Recognition & Validity</a></li> 
+  <li><a href="#apply" class="nav-apply">Apply Now</a></li> 
+  <li><a href="#contact">Contact</a></li> 
+ </ul> 
+</nav> 
 <section id="fees-comparison">
   <h2 style="text-align:center; color:#0d47a1;">MBBS Fees Comparison: Kyrgyzstan vs India</h2>
   <table style="width:100%; max-width:900px; margin:20px auto; border-collapse:collapse; text-align:left; font-family:Arial, sans-serif;">
@@ -60,5 +72,96 @@
   </p>
 </section>
 
+  <!-- Apply Section -->
+<section id="apply">
+  <h2>Apply Now for MBBS in Kyrgyzstan</h2>
+  <p>
+    Interested students can apply through our platform. Free initial guidance and transparent information provided.
+  </p>
+  <a href="index.html#apply" class="btn-primary">Go to Apply Form</a>
+</section>
 
-<section>
+<!-- Contact Section -->
+<section id="contact">
+  <h2>Contact Us</h2>
+  <p>For guidance and complete fees info, contact us directly on WhatsApp.</p>
+  <a href="https://wa.me/919102467809" target="_blank" class="btn-whatsapp">
+    Contact on WhatsApp
+  </a>
+</section>
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/919102467809" target="_blank" class="floating-whatsapp" id="whatsappBtn">
+  <img src="images/whatsapp-icon.png" alt="WhatsApp">
+</a>
+
+<script>
+// Copy your existing floating WhatsApp JS here
+const whatsappBtn = document.getElementById('whatsappBtn');
+let isDragging = false;
+let offsetX, offsetY;
+
+whatsappBtn.addEventListener('mousedown', startDrag);
+whatsappBtn.addEventListener('touchstart', startDrag);
+
+function startDrag(e) {
+  isDragging = true;
+  e.preventDefault();
+  const rect = whatsappBtn.getBoundingClientRect();
+
+  if(e.type === 'touchstart'){
+    offsetX = e.touches[0].clientX - rect.left;
+    offsetY = e.touches[0].clientY - rect.top;
+  } else {
+    offsetX = e.clientX - rect.left;
+    offsetY = e.clientY - rect.top;
+  }
+
+  document.addEventListener('mousemove', drag);
+  document.addEventListener('mouseup', stopDrag);
+  document.addEventListener('touchmove', drag);
+  document.addEventListener('touchend', stopDrag);
+}
+
+function drag(e) {
+  if(!isDragging) return;
+
+  let clientX, clientY;
+  if(e.type === 'touchmove'){
+    clientX = e.touches[0].clientX;
+    clientY = e.touches[0].clientY;
+  } else {
+    clientX = e.clientX;
+    clientY = e.clientY;
+  }
+
+  let left = clientX - offsetX;
+  let top = clientY - offsetY;
+
+  const btnWidth = whatsappBtn.offsetWidth;
+  const btnHeight = whatsappBtn.offsetHeight;
+  const maxLeft = window.innerWidth - btnWidth;
+  const maxTop = window.innerHeight - btnHeight;
+
+  if(left < 0) left = 0;
+  if(top < 0) top = 0;
+  if(left > maxLeft) left = maxLeft;
+  if(top > maxTop) top = maxTop;
+
+  whatsappBtn.style.left = left + 'px';
+  whatsappBtn.style.top = top + 'px';
+  whatsappBtn.style.right = 'auto';
+  whatsappBtn.style.bottom = 'auto';
+}
+
+function stopDrag() {
+  isDragging = false;
+  document.removeEventListener('mousemove', drag);
+  document.removeEventListener('mouseup', stopDrag);
+  document.removeEventListener('touchmove', drag);
+  document.removeEventListener('touchend', stopDrag);
+}
+</script>
+
+</body>
+</html>
