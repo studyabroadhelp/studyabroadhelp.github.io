@@ -518,15 +518,16 @@ nav + section {
 }
 
 
+
 /* Make Navbar Fixed Below Top Info Bar */
 nav {
   position: fixed;
   top: 50px; /* below top-info-bar */
   left: 0;
   width: 100%;
-  background-color: #1565c0; /* medium blue */
+  background-color: transparent; /* remove color */
   padding: 10px 0;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  box-shadow: none; /* optional, remove shadow */
   z-index: 9998;
 }
 
@@ -547,6 +548,7 @@ body {
 
   nav {
     top: 60px;
+    background-color: transparent;
   }
 
   body {
