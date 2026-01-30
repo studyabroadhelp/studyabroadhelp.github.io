@@ -386,3 +386,55 @@ h2 { color: #0d47a1; margin-bottom: 20px; border-bottom: 2px solid #eee; padding
     line-height: 1.6;
     color: #444;
 }
+/* Smart WhatsApp Button Styling */
+.smart-cta-container {
+    text-align: center;
+    padding: 40px 20px;
+    background: #f8f9fa; /* Light grey to make the button pop */
+    border-radius: 15px;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.btn-smart-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 35px;
+    background-color: #25D366; /* Official WhatsApp Green */
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 50px; /* Pill shape */
+    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+/* The "Smart" Animation - Gentle Pulse */
+@keyframes pulse-green {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+.btn-smart-whatsapp:hover {
+    background-color: #1ebe57;
+    transform: translateY(-5px); /* Lift effect */
+    box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
+}
+
+.btn-smart-whatsapp i, .btn-smart-whatsapp img {
+    margin-right: 12px;
+    width: 25px;
+}
+
+/* Action Trigger Text below the button */
+.cta-trigger-text {
+    display: block;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+}
