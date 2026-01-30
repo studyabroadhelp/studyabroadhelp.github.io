@@ -7,17 +7,37 @@
 <body>
 
 <!-- Top Info Bar -->
-<div class="top-info-bar">
-  <div class="top-left">
+<header class="fixed-header">
+  <div class="header-left">
     <img src="images/college-logo.png" alt="College Logo">
   </div>
-  <div class="top-center">
-    🎓 Admission Open 2026
+
+  <div class="header-center">
+    <a href="admission-2026.html">🎓 Admission Open 2026</a>
   </div>
-  <div class="top-right">
-    <a href="https://wa.me/919102467809">📞 Admission Helpline</a>
+
+  <div class="header-right">
+    <a href="https://wa.me/919102467809" target="_blank">📞 Admission Helpline</a>
+    <div class="hamburger" id="hamburger">&#9776;</div>
   </div>
-</div>
+
+  <!-- Mobile Menu -->
+  <nav class="header-nav" id="headerNav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="why-kyrgyzstan.html">Why Kyrgyzstan</a></li>
+      <li><a href="universityinfo.html">University Info</a></li>
+      <li><a href="fees.html">Fees</a></li>
+      <li><a href="admissionprocess.html">Admission Process</a></li>
+      <li><a href="recognition.html">Recognition & Validity</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="index.html#apply" class="nav-apply">Apply Now</a></li>
+      <li><a href="admission-2026.html">🎓 Admission 2026</a></li>
+      <li><a href="https://wa.me/919102467809" target="_blank">📞 Helpline</a></li>
+    </ul>
+  </nav>
+</header>
+
 
 <!-- Hero -->
 <section class="hero">
@@ -63,6 +83,14 @@
 <section>
   <a href="index.html#apply" class="btn-primary">Check Eligibility & Apply</a>
 </section>
+<script>
+const hamburger = document.getElementById('hamburger');
+const headerNav = document.getElementById('headerNav');
+
+hamburger.addEventListener('click', () => {
+  headerNav.classList.toggle('active');
+});
+</script>
 
 </body>
 </html>
