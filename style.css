@@ -320,3 +320,45 @@ h2 { color: #0d47a1; margin-bottom: 20px; border-bottom: 2px solid #eee; padding
     margin: 0 20px 20px;
     text-align: center;
 }
+/* Admission Process - Step Styling */
+#processSteps {
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+.process-step {
+    position: relative;
+    padding: 25px;
+    margin-bottom: 25px;
+    background: #fff;
+    border-radius: 10px;
+    border-left: 5px solid #0d47a1;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.process-step:hover {
+    transform: translateX(10px);
+    background: #f0f4ff;
+}
+
+.process-step h3 {
+    color: #0d47a1;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.process-step h3::before {
+    content: "✓";
+    background: #0d47a1;
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    font-size: 14px;
+}
