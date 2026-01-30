@@ -204,3 +204,27 @@ h2 { color: #0d47a1; margin-bottom: 20px; border-bottom: 2px solid #eee; padding
     .sticky-apply { display: block; }
     section { padding: 20px; width: 95%; }
 }
+/* Table Styling */
+.fees-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 15px;
+}
+.fees-table th, .fees-table td {
+    padding: 15px;
+    border: 1px solid #eee;
+    text-align: left;
+}
+.fees-table th {
+    background-color: #0d47a1;
+    color: white;
+}
+.fees-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+.highlight-row {
+    background-color: #e3f2fd !important;
+    font-weight: bold;
+    color: #0d47a1;
+}
