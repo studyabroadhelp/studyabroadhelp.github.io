@@ -276,3 +276,47 @@ h2 { color: #0d47a1; margin-bottom: 20px; border-bottom: 2px solid #eee; padding
 @media (max-width: 768px) {
   .intro-image-wrap { grid-template-columns: 1fr; }
 }
+/* University Page - Cards */
+#universities {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 40px 20px;
+}
+
+.university-card {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+}
+
+.university-card:hover {
+    transform: translateY(-10px);
+}
+
+.university-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Ensures photos look good regardless of size */
+}
+
+.university-card h3 {
+    padding: 20px 20px 10px;
+    color: #0d47a1;
+}
+
+.university-card p {
+    padding: 0 20px 20px;
+    font-size: 15px;
+    flex-grow: 1; /* Pushes the button to the bottom */
+}
+
+.university-card .btn-primary {
+    margin: 0 20px 20px;
+    text-align: center;
+}
