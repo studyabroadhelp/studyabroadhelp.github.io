@@ -7,37 +7,39 @@
  <link rel="stylesheet" href="style.css">
 </head>
 <body>
- <!-- Top Admission Info Bar -->
- <header class="fixed-header">
-  <div class="header-left">
+<!-- Top Admission Info Bar -->
+<div class="top-info-bar">
+  
+  <div class="top-left">
     <img src="images/college-logo.png" alt="College Logo">
   </div>
 
-  <div class="header-center">
-    <a href="admission-2026.html">🎓 Admission Open 2026</a>
+  <div class="top-center">
+    <a href="admission-2026.html">
+      🎓 Admission Open 2026 – Apply Early
+    </a>
   </div>
 
-  <div class="header-right">
-    <a href="https://wa.me/919102467809" target="_blank">📞 Admission Helpline</a>
-    <div class="hamburger" id="hamburger">&#9776;</div>
+  <div class="top-right">
+    <a href="https://wa.me/919102467809" target="_blank">
+      📞 Admission Helpline
+    </a>
   </div>
 
-  <!-- Mobile Menu -->
-  <nav class="header-nav" id="headerNav">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="why-kyrgyzstan.html">Why Kyrgyzstan</a></li>
-      <li><a href="universityinfo.html">University Info</a></li>
-      <li><a href="fees.html">Fees</a></li>
-      <li><a href="admissionprocess.html">Admission Process</a></li>
-      <li><a href="recognition.html">Recognition & Validity</a></li>
-      <li><a href="index.html#contact">Contact</a></li>
-      <li><a href="index.html#apply" class="nav-apply">Apply Now</a></li>
-      <li><a href="admission-2026.html">🎓 Admission 2026</a></li>
-      <li><a href="https://wa.me/919102467809" target="_blank">📞 Helpline</a></li>
-    </ul>
-  </nav>
-</header>
+</div>
+ <!-- NAVBAR (same as home page) -->
+<nav> 
+  <ul> 
+    <li><a href="index.html">Home</a></li> 
+    <li><a href="why-kyrgyzstan.html">Why Kyrgyzstan</a></li> 
+    <li><a href="universityinfo.html">University Info</a></li>
+    <li><a href="fees.html">Fees</a></li> 
+    <li><a href="admissionprocess.html">Admission Process</a></li> 
+    <li><a href="recognition.html">Recognition & Validity</a></li> 
+    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="index.html#apply" class="nav-apply">Apply Now</a></li> 
+  </ul> 
+</nav>
 
  <!-- Hero Section -->
  <section class="hero">
@@ -459,14 +461,7 @@ applyForm.addEventListener('submit', function() {
   }, 300);
 });
 </script>
-<script>
-const hamburger = document.getElementById('hamburger');
-const headerNav = document.getElementById('headerNav');
 
-hamburger.addEventListener('click', () => {
-  headerNav.classList.toggle('active');
-});
-</script>
 
 </body>
 </html>
