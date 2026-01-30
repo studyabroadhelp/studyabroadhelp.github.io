@@ -462,6 +462,37 @@ applyForm.addEventListener('submit', function() {
   }, 300);
 });
 </script>
+<!-- Mobile Hamburger -->
+<div class="mobile-header">
+  <img src="images/college-logo.png" class="mobile-logo">
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+</div>
+
+<!-- Mobile Slide Menu -->
+<div id="mobileMenu" class="mobile-menu">
+  <div class="close-btn" onclick="toggleMenu()">✕</div>
+
+  <div class="mobile-top">
+    🎓 Admission Open 2026<br>
+    <a href="https://wa.me/919102467809">📞 WhatsApp Helpline</a>
+  </div>
+
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="why-kyrgyzstan.html">Why Kyrgyzstan</a></li>
+    <li><a href="universityinfo.html">University Info</a></li>
+    <li><a href="fees.html">Fees</a></li>
+    <li><a href="admissionprocess.html">Admission Process</a></li>
+    <li><a href="recognition.html">Recognition & Validity</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="index.html#apply" class="apply-btn">Apply Now</a></li>
+  </ul>
+</div>
+<script>
+function toggleMenu() {
+  document.getElementById("mobileMenu").classList.toggle("active");
+}
+</script>
 
 </body>
 </html>
