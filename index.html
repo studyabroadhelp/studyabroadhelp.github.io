@@ -7,40 +7,6 @@
  <link rel="stylesheet" href="style.css">
 </head>
 <body>
- <!-- Mobile Header -->
-<div class="mobile-header">
-  <div class="mobile-left">
-    <img src="images/college-logo.png" alt="Logo" class="mobile-logo">
-  </div>
-  <div class="mobile-right">
-    <div class="hamburger" id="hamburger">&#9776;</div>
-  </div>
-</div>
-
-<!-- Mobile Menu (hidden by default) -->
-<div class="mobile-menu" id="mobileMenu">
-  <div class="top-info-bar">
-    <div class="top-center">
-      <a href="admission-2026.html">🎓 Admission Open 2026 – Apply Early</a>
-    </div>
-    <div class="top-right">
-      <a href="https://wa.me/919102467809" target="_blank">📞 Admission Helpline</a>
-    </div>
-  </div>
-
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="why-kyrgyzstan.html">Why Kyrgyzstan</a></li>
-      <li><a href="universityinfo.html">University Info</a></li>
-      <li><a href="fees.html">Fees</a></li>
-      <li><a href="admissionprocess.html">Admission Process</a></li>
-      <li><a href="recognition.html">Recognition & Validity</a></li>
-      <li><a href="index.html#contact">Contact</a></li>
-      <li><a href="index.html#apply" class="nav-apply">Apply Now</a></li>
-    </ul>
-  </nav>
-</div>
 
 <!-- Top Admission Info Bar -->
 <div class="top-info-bar">
@@ -494,15 +460,6 @@ applyForm.addEventListener('submit', function() {
   setTimeout(() => {
     formMessage.style.display = 'block';
   }, 300);
-});
-</script>
-
-<script>
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-
-hamburger.addEventListener('click', () => {
-  mobileMenu.classList.toggle('open');
 });
 </script>
 
