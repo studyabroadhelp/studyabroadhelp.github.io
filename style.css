@@ -526,14 +526,15 @@ nav + section {
 
 
 /* Make Navbar Fixed Below Top Info Bar */
+/* Fixed Navbar Below Top Info Bar - Desktop */
 nav {
   position: fixed;
   top: 50px; /* below top-info-bar */
   left: 0;
   width: 100%;
-  background-color: transparent; /* remove color */
+  background-color: #0d47a1; /* blue background for desktop */
   padding: 10px 0;
-  box-shadow: none; /* optional, remove shadow */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   z-index: 9998;
 }
 
