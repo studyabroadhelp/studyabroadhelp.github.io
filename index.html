@@ -9,7 +9,13 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+<div id="xarvisPopup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:99999; color:white; align-items:center; justify-content:center; text-align:center; font-family: sans-serif;">
+    <div style="padding:40px; background:#1565c0; border-radius:15px; border:3px solid #ffd166; max-width:90%; box-shadow: 0 0 20px rgba(0,0,0,0.5);">
+        <h2 id="popupTitle" style="color:#ffd166; margin-bottom:15px;">Check Eligibility First!</h2>
+        <p id="popupText" style="font-size:18px; line-height:1.5;">To unlock the application form, you must complete the eligibility test.</p>
+        <div style="margin-top:20px; font-weight:bold; color:#ffd166;">Scrolling in progress...</div>
+    </div>
+</div>
 <!-- Top Admission Info Bar -->
 <div class="top-info-bar">
   
@@ -391,5 +397,72 @@ function stopDrag() {
     </a>
 </section>
 <script src="script.js"></script>
+ <script>
+// 1. Function to show Pop-up and Scroll
+function triggerEligibilityFlow(title, message) {
+    const popup = document.getElementById('xarvisPopup');
+    const titleEl = document.getElementById('popupTitle');
+    const textEl = document.getElementById('popupText');
+    
+    titleEl.innerText = title;
+    textEl.innerText = message;
+    popup.style.display = 'flex';
+
+    // Wait 2 seconds, then hide and scroll
+    setTimeout(() => {
+        popup.style.display = 'none';
+        document.getElementById('eligibility').scrollIntoView({ behavior: 'smooth' });
+    }, 2500);
+}
+
+// 2. Listen for clicks on the LOCKED Apply Form
+document.getElementById('applyOverlay').addEventListener('click', function() {
+    triggerEligibilityFlow("Form Locked!", "Please complete the 30-second Eligibility Test below to unlock this application form.");
+});
+
+// 3. Handle Eligibility Form Submission
+document.getElementById('eligibilityForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const isPcb = document.getElementById('pcb').value;
+    const isNeet = document.getElementById('neet').value;
+    const percentage = document.getElementById('percentage').value;
+
+    if (isPcb === 'yes' && isNeet === 'yes' && percentage !== 'below') {
+        // SUCCESS MESSAGE
+        triggerEligibilityFlow("Congratulations!", "You are ELIGIBLE! Unlocking your Application Form now...");
+        
+        // UNLOCK THE APPLY FORM
+        setTimeout(() => {
+            const applyForm = document.getElementById('applyForm');
+            const inputs = applyForm.querySelectorAll('input, select, button');
+            
+            inputs.forEach(el => el.disabled = false); // Enable all fields
+            applyForm.querySelector('button').style.background = "#28a745";
+            applyForm.querySelector('button').innerText = "Submit Application (Unlocked)";
+            
+            // Remove the overlay so they can type
+            document.getElementById('applyOverlay').style.display = 'none';
+            document.getElementById('applyLockMsg').style.display = 'none';
+            
+            // Scroll back to the Apply Form
+            document.getElementById('apply').scrollIntoView({ behavior: 'smooth' });
+        }, 2500);
+
+    } else {
+        // NOT ELIGIBLE MESSAGE
+        const result = document.getElementById('eligibilityResult');
+        result.style.display = 'block';
+        result.style.color = 'red';
+        result.innerText = "❌ Sorry, based on your marks/NEET status, you do not meet the minimum criteria.";
+    }
+});
+
+// 4. Final Application Success
+document.getElementById('applyForm').onsubmit = function() {
+    // Show a quick success popup before Formspree takes over
+    alert("Application details captured! We will contact you on WhatsApp.");
+};
+</script> 
 </body>
 </html>
