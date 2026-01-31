@@ -194,66 +194,16 @@ h2 { color: #0d47a1; margin-bottom: 20px; border-bottom: 2px solid #eee; padding
     box-shadow: 0 4px 15px rgba(0,0,0,0.4); 
 }
 
-/* 7. RESPONSIVE DESIGN - FIXED OVERLAP */
+/* 7. RESPONSIVE DESIGN */
 @media (max-width: 768px) {
-    body { 
-        margin-top: 0px; /* Removes rigid margin to let elements stack naturally */
-    }
-
-    /* Fixes head.png overlapping */
-    .top-info-bar { 
-        position: relative; /* Stops it from floating over the nav */
-        height: auto; 
-        flex-direction: column; 
-        padding: 15px 10px; 
-        text-align: center; 
-        gap: 12px; /* Adds clear separation between logo, pill, and phone */
-    }
-
-    .top-left, .top-center, .top-right {
-        width: 100%;
-        display: block;
-    }
-
-    nav { 
-        position: relative; /* Stops nav from floating over hero content */
-        top: 0; 
-        padding: 15px 0;
-    }
-
-    nav ul { 
-        flex-direction: column; /* Stacks Home, Fees, etc. vertically */
-        align-items: center;
-    }
-
-    nav ul li { 
-        margin: 8px 0; 
-    }
-
-    .hero { 
-        height: auto; 
-        min-height: 350px;
-        padding: 40px 20px;
-        text-align: center; 
-    }
-
-    .hero h1 { font-size: 26px; }
-    
+    body { margin-top: 140px; }
+    .top-info-bar { height: auto; flex-direction: column; padding: 10px; text-align: center; }
+    nav { top: 90px; }
+    .hero { height: 350px; text-align: center; }
+    .hero h1 { font-size: 28px; }
     .sticky-apply { display: block; }
-    
-    section { 
-        padding: 20px; 
-        width: 92%; 
-        margin: 20px auto;
-    }
-
-    /* Fixes contact.png - ensures full-width button on mobile */
-    #contact a, .intro-card + section a {
-        display: block;
-        width: 100%;
-        text-align: center;
-    }
-}
+    section { padding: 20px; width: 95%; 
+ }
 }
 /* Table Styling */
 .fees-table {
