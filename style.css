@@ -194,65 +194,57 @@ h2 { color: #0d47a1; margin-bottom: 20px; border-bottom: 2px solid #eee; padding
     box-shadow: 0 4px 15px rgba(0,0,0,0.4); 
 }
 
-/* 7. RESPONSIVE DESIGN - Minimal Spacing Only */
+/* 7. RESPONSIVE DESIGN - XARVIS OVERLAP FIX */
 @media (max-width: 768px) {
-    /* 1. The Bulletproof Header Fix */
-    .top-info-bar { 
-        height: auto !important; /* Allow height to grow if items wrap */
-        min-height: 60px;
-        display: flex !important;
-        flex-wrap: wrap !important; /* THIS IS THE KEY: it pushes items down instead of overlapping */
-        justify-content: center !important; 
-        align-items: center !important;
-        padding: 10px 5px !important;
-        gap: 10px 15px; /* Adds vertical and horizontal space between items */
-    }
-
-    /* Ensure the logo and pill don't fight for space */
-    .top-left, .top-center, .top-right {
-        flex: 0 1 auto; /* Allows them to take only the space they need */
-        display: flex;
-        justify-content: center;
-        margin: 2px 0;
-    }
-
-    /* 2. Adjust Body Margin so content doesn't hide under the wrapped header */
+    /* Fix 1: Stop floating. Make header blocks stack naturally */
     body { 
-        margin-top: 150px; /* Increased slightly to account for the potential extra row */
+        margin-top: 0 !important; 
     }
 
-    /* 3. Navigation spacing */
-    nav ul {
-        display: flex !important;
-        flex-wrap: wrap !important;
-        justify-content: center !important;
-        gap: 8px;
+    .top-info-bar { 
+        position: relative !important; 
+        height: auto !important; 
+        flex-direction: column !important; 
+        padding: 15px 10px !important;
+        gap: 10px !important;
     }
-}
 
-    /* 2. Keeps Nav horizontal but adds a tiny gap between links */
+    /* Fix 2: Shrink the 'Admission Open' button so it doesn't overflow */
+    .top-center a {
+        font-size: 11px !important;
+        padding: 6px 12px !important;
+        white-space: nowrap;
+    }
+
+    /* Fix 3: Make Nav sit UNDER the top bar without overlapping */
+    nav { 
+        position: relative !important; 
+        top: 0 !important; 
+        padding: 15px 5px !important;
+    }
+
     nav ul { 
-        flex-wrap: wrap; 
-        justify-content: center;
-        gap: 5px; /* This separates the links just enough */
+        gap: 8px !important;
     }
 
-    nav ul li { 
-        margin: 2px 5px; 
+    nav ul li a {
+        font-size: 13px !important;
+        padding: 6px 10px !important;
     }
 
-    /* 3. Keeps your existing desktop body margin */
-    body { margin-top: 130px; }
+    /* Fix 4: Ensure the Logo doesn't get squeezed */
+    .top-left img {
+        height: 40px !important;
+    }
 
-    /* 4. Highlight Button for Contact (from contact.png) */
-    #contact a {
-        display: inline-block;
-        background-color: #0d47a1;
-        color: white !important;
-        padding: 10px 20px;
-        text-decoration: none !important;
-        border-radius: 6px;
-        margin-top: 10px;
+    /* Fix 5: Ensure intro cards and images look good on mobile */
+    .intro-image-wrap { 
+        grid-template-columns: 1fr !important; 
+    }
+    
+    section {
+        width: 95% !important;
+        padding: 20px !important;
     }
 }
 /* Table Styling */
