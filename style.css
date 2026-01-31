@@ -194,16 +194,41 @@ h2 { color: #0d47a1; margin-bottom: 20px; border-bottom: 2px solid #eee; padding
     box-shadow: 0 4px 15px rgba(0,0,0,0.4); 
 }
 
-/* 7. RESPONSIVE DESIGN */
+/* 7. RESPONSIVE DESIGN - Minimal Spacing Only */
 @media (max-width: 768px) {
-    body { margin-top: 140px; }
-    .top-info-bar { height: auto; flex-direction: column; padding: 10px; text-align: center; }
-    nav { top: 90px; }
-    .hero { height: 350px; text-align: center; }
-    .hero h1 { font-size: 28px; }
-    .sticky-apply { display: block; }
-    section { padding: 20px; width: 95%; 
- }
+    /* 1. Keeps header horizontal but prevents overlapping */
+    .top-info-bar { 
+        height: auto; 
+        min-height: 60px;
+        flex-wrap: wrap; /* Allows items to wrap if screen is too thin */
+        padding: 5px 10px;
+        justify-content: space-around;
+    }
+
+    /* 2. Keeps Nav horizontal but adds a tiny gap between links */
+    nav ul { 
+        flex-wrap: wrap; 
+        justify-content: center;
+        gap: 5px; /* This separates the links just enough */
+    }
+
+    nav ul li { 
+        margin: 2px 5px; 
+    }
+
+    /* 3. Keeps your existing desktop body margin */
+    body { margin-top: 130px; }
+
+    /* 4. Highlight Button for Contact (from contact.png) */
+    #contact a {
+        display: inline-block;
+        background-color: #0d47a1;
+        color: white !important;
+        padding: 10px 20px;
+        text-decoration: none !important;
+        border-radius: 6px;
+        margin-top: 10px;
+    }
 }
 /* Table Styling */
 .fees-table {
