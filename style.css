@@ -469,3 +469,27 @@ h2 { color: #0d47a1; margin-bottom: 20px; border-bottom: 2px solid #eee; padding
     70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
     100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
+/* This turns your bottom links into Highlighted Buttons */
+#contact a, 
+section > a.btn-primary,
+.intro-card + section a {
+    display: inline-block;
+    background-color: #0d47a1; /* Professional Blue */
+    color: #ffffff !important;
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none !important; /* Removes the underline */
+    font-weight: bold;
+    font-size: 16px;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    margin-top: 15px;
+}
+
+/* Hover effect for the button */
+#contact a:hover, 
+section > a.btn-primary:hover {
+    background-color: #1565c0;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
