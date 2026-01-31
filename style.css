@@ -196,14 +196,39 @@ h2 { color: #0d47a1; margin-bottom: 20px; border-bottom: 2px solid #eee; padding
 
 /* 7. RESPONSIVE DESIGN - Minimal Spacing Only */
 @media (max-width: 768px) {
-    /* 1. Keeps header horizontal but prevents overlapping */
+    /* 1. The Bulletproof Header Fix */
     .top-info-bar { 
-        height: auto; 
+        height: auto !important; /* Allow height to grow if items wrap */
         min-height: 60px;
-        flex-wrap: wrap; /* Allows items to wrap if screen is too thin */
-        padding: 5px 10px;
-        justify-content: space-around;
+        display: flex !important;
+        flex-wrap: wrap !important; /* THIS IS THE KEY: it pushes items down instead of overlapping */
+        justify-content: center !important; 
+        align-items: center !important;
+        padding: 10px 5px !important;
+        gap: 10px 15px; /* Adds vertical and horizontal space between items */
     }
+
+    /* Ensure the logo and pill don't fight for space */
+    .top-left, .top-center, .top-right {
+        flex: 0 1 auto; /* Allows them to take only the space they need */
+        display: flex;
+        justify-content: center;
+        margin: 2px 0;
+    }
+
+    /* 2. Adjust Body Margin so content doesn't hide under the wrapped header */
+    body { 
+        margin-top: 150px; /* Increased slightly to account for the potential extra row */
+    }
+
+    /* 3. Navigation spacing */
+    nav ul {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 8px;
+    }
+}
 
     /* 2. Keeps Nav horizontal but adds a tiny gap between links */
     nav ul { 
