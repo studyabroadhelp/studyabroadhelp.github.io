@@ -584,3 +584,56 @@ nav ul li a.active {
 }
 
 .uni-fee-table th { background: #f8f9fa; }
+/* 5-SLIDE HERO TRACKER */
+.hero-slider {
+    width: 100%;
+    height: 550px; /* Slightly taller for more impact */
+    overflow: hidden;
+    position: relative;
+}
+
+.slider-track {
+    display: flex;
+    width: 500%; /* 100% per slide x 5 slides */
+    height: 100%;
+    animation: slideLoop 15s infinite ease-in-out;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Keyframes for 5 Slides (20% each) */
+@keyframes slideLoop {
+    0%, 15% { transform: translateX(0); }             /* Slide 1 stay */
+    20%, 35% { transform: translateX(-20%); }         /* Slide 2 stay */
+    40%, 55% { transform: translateX(-40%); }         /* Slide 3 stay */
+    60%, 75% { transform: translateX(-60%); }         /* Slide 4 stay */
+    80%, 95% { transform: translateX(-80%); }         /* Slide 5 stay */
+    100% { transform: translateX(0); }                /* Reset back to Slide 1 */
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    color: #fff;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    color: #f1f1f1;
+    margin-bottom: 30px;
+}
