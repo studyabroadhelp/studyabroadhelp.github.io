@@ -641,82 +641,57 @@ nav ul li a.active {
     color: #fff;
     margin-bottom: 2rem;
 }
-
-
-/* --- SURGICAL CLEAN HERO CSS --- */
+/* 5-SLIDE HERO TRACKER */
 .hero-slider {
     width: 100%;
-    height: 600px;
-    overflow: hidden; /* This hides the other images from overlapping */
+    height: 550px; /* Slightly taller for more impact */
+    overflow: hidden;
     position: relative;
-    background: #000;
 }
 
 .slider-track {
     display: flex;
-    width: 600%; /* Important: 6 slides (5 + 1 clone) */
+    width: 500%; /* 100% per slide x 5 slides */
     height: 100%;
-    /* 18 seconds total (3s per slide) */
-    animation: infiniteLoop 18s infinite ease-in-out;
+    animation: slideLoop 15s infinite ease-in-out;
 }
 
 .slide {
     width: 100%;
-    flex: 0 0 16.666%; /* Forces exactly 1 image per frame. NO OVERLAP. */
     height: 100%;
     background-size: cover;
     background-position: center;
     display: flex;
-    align-items: flex-end; /* ANCHORS CAPTION TO BOTTOM */
-    justify-content: flex-start; /* ANCHORS CAPTION TO LEFT */
-    padding-bottom: 60px; /* Space from very bottom */
-    padding-left: 5%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
-.slide-footer {
-    text-align: left;
-    max-width: 550px;
-    padding: 25px;
-    background: rgba(0, 0, 0, 0.65); /* Standard dark box */
-    border-left: 5px solid #ffcc00;
-    border-radius: 0 5px 5px 0;
-    backdrop-filter: blur(5px);
+/* Keyframes for 5 Slides (20% each) */
+@keyframes slideLoop {
+    0%, 15% { transform: translateX(0); }             /* Slide 1 stay */
+    20%, 35% { transform: translateX(-20%); }         /* Slide 2 stay */
+    40%, 55% { transform: translateX(-40%); }         /* Slide 3 stay */
+    60%, 75% { transform: translateX(-60%); }         /* Slide 4 stay */
+    80%, 95% { transform: translateX(-80%); }         /* Slide 5 stay */
+    100% { transform: translateX(0); }                /* Reset back to Slide 1 */
 }
 
-.slide-footer h3 {
+.hero-content {
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
     color: #fff;
-    font-size: 2.2rem;
-    margin: 10px 0;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+    margin-bottom: 20px;
 }
 
-.slide-footer p {
-    color: #eee;
-    font-size: 1.1rem;
+.hero-content p {
+    font-size: 1.25rem;
+    color: #f1f1f1;
+    margin-bottom: 30px;
 }
 
-.uni-badge {
-    background: #ffcc00;
-    color: #000;
-    padding: 4px 12px;
-    font-size: 12px;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-/* THE INFINITE CIRCULAR KEYFRAME */
-@keyframes infiniteLoop {
-    0%, 14% { transform: translateX(0); }             /* hero.jpg */
-    16.6%, 30% { transform: translateX(-16.666%); }   /* hero2.jpg */
-    33.3%, 47% { transform: translateX(-33.333%); }   /* hero3.jpg */
-    50%, 64% { transform: translateX(-50%); }         /* hero4.jpg */
-    66.6%, 80% { transform: translateX(-66.666%); }   /* hero5.jpg */
-    83.3%, 97% { transform: translateX(-83.333%); }   /* Back to Clone */
-    100% { transform: translateX(0); }                /* Instant Reset to start */
-}
-
-/* MOBILE FIX */
-@media (max-width: 768px) {
-    .hero-slider { height: 450px; }
-    .slide-footer h3 { font-size: 1.5rem; }
-    .slide-footer { max-width: 90%; margin-right: 5%; }
-}
