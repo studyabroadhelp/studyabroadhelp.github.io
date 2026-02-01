@@ -641,165 +641,82 @@ nav ul li a.active {
     color: #fff;
     margin-bottom: 2rem;
 }
-/* HERO SLIDER CONTAINER */
-.hero-slider {
-    width: 100%;
-    height: 600px; /* Maintains building perspective */
-    overflow: hidden;
-    position: relative;
-    background: #000;
-}
 
-/* THE TRACK (CIRCULAR LOOP) */
-.slider-track {
-    display: flex;
-    width: 500%; /* 5 slides x 100% */
-    height: 100%;
-    animation: circularMove 15s infinite ease-in-out;
-}
 
-/* INDIVIDUAL SLIDE (FIXES MOBILE & OVERLAP) */
-.slide {
-    width: 100%;
-    flex: 0 0 100%; /* FIX: Prevents horizontal overlap/squeezing */
-    height: 100%;
-    background-size: cover; /* Building fills frame */
-    background-position: center;
-    display: flex;
-    align-items: flex-end; /* Text to Bottom */
-    justify-content: flex-start; /* Text to Left */
-    padding: 60px 5%;
-}
-
-/* STANDARD BOTTOM CAPTION STYLE */
-.slide-footer {
-    text-align: left;
-    max-width: 600px;
-    padding: 25px;
-    background: rgba(0, 0, 0, 0.45); /* Standard dark overlay for readability */
-    border-left: 5px solid #ffcc00; /* Professional Gold/Yellow accent */
-    backdrop-filter: blur(5px);
-    border-radius: 0 5px 5px 0;
-}
-
-.uni-badge {
-    background: #ffcc00;
-    color: #000;
-    padding: 5px 15px;
-    font-size: 11px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    border-radius: 2px;
-}
-
-.slide-footer h3 {
-    color: #fff;
-    font-size: 2rem;
-    margin: 15px 0 10px;
-    font-weight: 700;
-}
-
-.slide-footer p {
-    color: #f0f0f0;
-    font-size: 1rem;
-    line-height: 1.5;
-}
-
-/* SMOOTH CIRCULAR ROTATION (2 SECONDS PER SLIDE) */
-@keyframes circularMove {
-    0%, 15% { transform: translateX(0); }
-    20%, 35% { transform: translateX(-20%); }
-    40%, 55% { transform: translateX(-40%); }
-    60%, 75% { transform: translateX(-60%); }
-    80%, 95% { transform: translateX(-80%); }
-    100% { transform: translateX(0); } /* Seamless reset */
-}
-
-/* MOBILE RESPONSIVENESS */
-@media (max-width: 768px) {
-    .hero-slider { height: 450px; } /* Shorter on mobile */
-    .slide { padding: 40px 20px; }
-    .slide-footer h3 { font-size: 1.4rem; }
-    .slide-footer p { font-size: 0.85rem; }
-    .slide-footer { max-width: 90%; }
-}
-/* CONTAINER SETUP */
+/* --- SURGICAL CLEAN HERO CSS --- */
 .hero-slider {
     width: 100%;
     height: 600px;
-    overflow: hidden;
+    overflow: hidden; /* This hides the other images from overlapping */
     position: relative;
     background: #000;
 }
 
-/* TRACK - INFINITE CIRCULAR LOGIC */
 .slider-track {
     display: flex;
-    width: 600%; /* Now 6 slides total */
+    width: 600%; /* Important: 6 slides (5 + 1 clone) */
     height: 100%;
-    animation: infiniteSlide 18s infinite ease-in-out;
+    /* 18 seconds total (3s per slide) */
+    animation: infiniteLoop 18s infinite ease-in-out;
 }
 
-/* INDIVIDUAL SLIDE - FIXES OVERLAP & MOBILE */
 .slide {
     width: 100%;
-    flex: 0 0 100%; /* Prevents images from squeezing/overlapping */
+    flex: 0 0 16.666%; /* Forces exactly 1 image per frame. NO OVERLAP. */
     height: 100%;
     background-size: cover;
     background-position: center;
     display: flex;
-    align-items: flex-end; /* FORCES TEXT TO BOTTOM */
-    justify-content: flex-start; /* TEXT TO THE LEFT */
-    padding-bottom: 50px; /* Space from bottom edge */
+    align-items: flex-end; /* ANCHORS CAPTION TO BOTTOM */
+    justify-content: flex-start; /* ANCHORS CAPTION TO LEFT */
+    padding-bottom: 60px; /* Space from very bottom */
     padding-left: 5%;
 }
 
-/* STANDARD BOTTOM CAPTION STYLE */
 .slide-footer {
     text-align: left;
     max-width: 550px;
     padding: 25px;
-    background: rgba(0, 0, 0, 0.6); /* Standard dark transparent background */
+    background: rgba(0, 0, 0, 0.65); /* Standard dark box */
     border-left: 5px solid #ffcc00;
     border-radius: 0 5px 5px 0;
+    backdrop-filter: blur(5px);
 }
 
 .slide-footer h3 {
     color: #fff;
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin: 10px 0;
 }
 
 .slide-footer p {
     color: #eee;
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 
 .uni-badge {
     background: #ffcc00;
     color: #000;
-    padding: 4px 10px;
-    font-size: 11px;
+    padding: 4px 12px;
+    font-size: 12px;
     font-weight: bold;
-    border-radius: 2px;
+    text-transform: uppercase;
 }
 
-/* KEYFRAMES FOR 6-STEP INFINITE LOOP (1-2-3-4-5-1) */
-@keyframes infiniteSlide {
+/* THE INFINITE CIRCULAR KEYFRAME */
+@keyframes infiniteLoop {
     0%, 14% { transform: translateX(0); }             /* hero.jpg */
-    16%, 30% { transform: translateX(-16.66%); }      /* hero2.jpg */
-    32%, 46% { transform: translateX(-33.33%); }      /* hero3.jpg */
-    48%, 62% { transform: translateX(-50%); }         /* hero4.jpg */
-    64%, 78% { transform: translateX(-66.66%); }      /* hero5.jpg */
-    80%, 94% { transform: translateX(-83.33%); }      /* Back to hero.jpg (Clone) */
-    100% { transform: translateX(0); }                /* Instant Reset */
+    16.6%, 30% { transform: translateX(-16.666%); }   /* hero2.jpg */
+    33.3%, 47% { transform: translateX(-33.333%); }   /* hero3.jpg */
+    50%, 64% { transform: translateX(-50%); }         /* hero4.jpg */
+    66.6%, 80% { transform: translateX(-66.666%); }   /* hero5.jpg */
+    83.3%, 97% { transform: translateX(-83.333%); }   /* Back to Clone */
+    100% { transform: translateX(0); }                /* Instant Reset to start */
 }
 
-/* MOBILE VIEW - ENSURE NO CUTOFF */
+/* MOBILE FIX */
 @media (max-width: 768px) {
-    .hero-slider { height: 400px; }
-    .slide { padding-bottom: 20px; padding-left: 20px; }
-    .slide-footer h3 { font-size: 1.3rem; }
-    .slide-footer { max-width: 90%; }
+    .hero-slider { height: 450px; }
+    .slide-footer h3 { font-size: 1.5rem; }
+    .slide-footer { max-width: 90%; margin-right: 5%; }
 }
