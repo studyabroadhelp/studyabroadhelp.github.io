@@ -641,3 +641,86 @@ nav ul li a.active {
     color: #fff;
     margin-bottom: 2rem;
 }
+/* HERO SLIDER CONTAINER */
+.hero-slider {
+    width: 100%;
+    height: 600px; /* Maintains building perspective */
+    overflow: hidden;
+    position: relative;
+    background: #000;
+}
+
+/* THE TRACK (CIRCULAR LOOP) */
+.slider-track {
+    display: flex;
+    width: 500%; /* 5 slides x 100% */
+    height: 100%;
+    animation: circularMove 15s infinite ease-in-out;
+}
+
+/* INDIVIDUAL SLIDE (FIXES MOBILE & OVERLAP) */
+.slide {
+    width: 100%;
+    flex: 0 0 100%; /* FIX: Prevents horizontal overlap/squeezing */
+    height: 100%;
+    background-size: cover; /* Building fills frame */
+    background-position: center;
+    display: flex;
+    align-items: flex-end; /* Text to Bottom */
+    justify-content: flex-start; /* Text to Left */
+    padding: 60px 5%;
+}
+
+/* STANDARD BOTTOM CAPTION STYLE */
+.slide-footer {
+    text-align: left;
+    max-width: 600px;
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.45); /* Standard dark overlay for readability */
+    border-left: 5px solid #ffcc00; /* Professional Gold/Yellow accent */
+    backdrop-filter: blur(5px);
+    border-radius: 0 5px 5px 0;
+}
+
+.uni-badge {
+    background: #ffcc00;
+    color: #000;
+    padding: 5px 15px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-radius: 2px;
+}
+
+.slide-footer h3 {
+    color: #fff;
+    font-size: 2rem;
+    margin: 15px 0 10px;
+    font-weight: 700;
+}
+
+.slide-footer p {
+    color: #f0f0f0;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* SMOOTH CIRCULAR ROTATION (2 SECONDS PER SLIDE) */
+@keyframes circularMove {
+    0%, 15% { transform: translateX(0); }
+    20%, 35% { transform: translateX(-20%); }
+    40%, 55% { transform: translateX(-40%); }
+    60%, 75% { transform: translateX(-60%); }
+    80%, 95% { transform: translateX(-80%); }
+    100% { transform: translateX(0); } /* Seamless reset */
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 768px) {
+    .hero-slider { height: 450px; } /* Shorter on mobile */
+    .slide { padding: 40px 20px; }
+    .slide-footer h3 { font-size: 1.4rem; }
+    .slide-footer p { font-size: 0.85rem; }
+    .slide-footer { max-width: 90%; }
+}
