@@ -491,6 +491,39 @@ document.getElementById('applyForm').onsubmit = function() {
     // Show a quick success popup before Formspree takes over
     alert("Application details captured! We will contact you on WhatsApp.");
 };
-</script> 
+</script>
+<script>
+let track = document.querySelector('.slider-track');
+let slides = document.querySelectorAll('.slide');
+let index = 0;
+let autoPlay;
+let waitTimer;
+
+function slideNext() {
+    index = (index + 1) % slides.length;
+    track.style.transform = `translateX(-${index * 20}%)`;
+}
+
+function startMoving() {
+    stopMoving(); // Clear old timers first
+    autoPlay = setInterval(slideNext, 3000); // Move every 3 seconds
+}
+
+function stopMoving() {
+    clearInterval(autoPlay);
+    clearTimeout(waitTimer);
+}
+
+// THE TOUCH RULE
+track.addEventListener('touchstart', () => {
+    stopMoving(); // Stop moving immediately when touched
+    
+    // Wait 5 seconds, then start moving again
+    waitTimer = setTimeout(startMoving, 5000);
+});
+
+// Start the slider when the page opens
+startMoving();
+</script>
 </body>
 </html>
