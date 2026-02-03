@@ -613,27 +613,28 @@ nav ul li a.active {
     margin: 2px 0;
     transition: 0.4s;
 }
-
 @media (max-width: 768px) {
-    .hamburger-btn { display: flex; } /* Show on Mobile */
-
+    /* Hide links by default on mobile */
     nav ul {
-        display: none; /* Hide links by default on mobile */
+        display: none; 
         flex-direction: column;
         width: 100%;
-        background: #1565c0;
+        background-color: #1565c0; /* Matches your nav color */
         position: absolute;
-        top: 100%;
+        top: 100%; /* Sits exactly below the nav bar */
         left: 0;
-        padding: 20px 0;
-        text-align: center;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+        padding: 10px 0;
+        z-index: 10002; /* Must be higher than hero and nav */
     }
 
-    /* This class will be added by JavaScript when you click */
+    /* THE FIX: This class must be powerful enough to show the menu */
     nav ul.show {
-        display: flex;
+        display: flex !important;
     }
 
-    nav ul li { margin: 15px 0; }
+    nav ul li {
+        width: 100%;
+        text-align: center;
+        margin: 10px 0;
+    }
 }
