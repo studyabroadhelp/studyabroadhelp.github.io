@@ -113,14 +113,14 @@ if (eligibilityForm) {
    3. HAMBURGER MENU TOGGLE
    ========================================= */
 function toggleMenu() {
+    console.log("Hamburger clicked!"); // This helps us check if the click works
     const navLinks = document.getElementById('navLinks');
+    
+    if (!navLinks) {
+        console.error("Could not find element with id 'navLinks'");
+        return;
+    }
+
     navLinks.classList.toggle('show');
+    console.log("Menu classes:", navLinks.className);
 }
-
-// Close menu when a link is clicked
-document.querySelectorAll('#navLinks a').forEach(link => {
-    link.addEventListener('click', () => {
-        document.getElementById('navLinks').classList.remove('show');
-    });
-});
-
