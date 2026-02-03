@@ -684,3 +684,11 @@ nav ul li a.active {
         margin-top: 100px !important; 
     }
 }
+/* Add this at the very bottom of your style.css */
+@media (max-width: 768px) {
+    #navLinks.show {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+}
