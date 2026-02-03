@@ -112,23 +112,7 @@ if (eligibilityForm) {
 /* =========================================
    3. HAMBURGER MENU TOGGLE
    ========================================= */
-document.addEventListener('DOMContentLoaded', () => {
-    const menuBtn = document.getElementById('menuBtn');
-    const navLinks = document.getElementById('navLinks');
 
-    if (menuBtn && navLinks) {
-        menuBtn.addEventListener('click', (e) => {
-            e.stopPropagation(); // Prevents the click from bubbling
-            navLinks.classList.toggle('show');
-            console.log("Menu toggled!");
-        });
-
-        // Optional: Close menu if clicking anywhere else on screen
-        document.addEventListener('click', () => {
-            navLinks.classList.remove('show');
-        });
-    }
-});
 
 function toggleMenu() {
     var x = document.getElementById("navLinks");
