@@ -567,29 +567,37 @@ nav ul li a.active {
 }
 
 .uni-fee-table th { background: #f8f9fa; }
-/* --- THE ULTIMATE SLIDER FIX --- */
+/* --- THE FORCE FIX: NO OVERLAP --- */
 .hero-slider {
     width: 100%;
     height: 450px; 
-    overflow: hidden; /* Hides the images that are 'outside' the frame */
+    overflow: hidden; 
     position: relative;
     background: #000;
 }
 
 .slider-track {
     display: flex;
-    width: 100%; /* Change this from 500% to 100% */
+    width: 100%; 
     height: 100%;
     transition: transform 0.5s ease-in-out;
+    /* This ensures there is NO space between slides */
+    gap: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .slide {
-    flex: 0 0 100%; /* LOCKS each slide to exactly 100% of the screen */
-    min-width: 100%; /* Prevents shrinking */
+    /* flex: 1 0 100% means: Stay at 100% width, don't shrink */
+    flex: 1 0 100%;
+    width: 100%;
     height: 100%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    /* This ensures padding doesn't push the image size out */
+    box-sizing: border-box; 
+    margin: 0;
 }
 
 @media (max-width: 768px) {
