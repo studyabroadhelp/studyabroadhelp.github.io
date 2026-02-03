@@ -623,63 +623,51 @@ nav ul li a.active {
 }
 /* Update this in your CSS */
 @media (max-width: 768px) {
+    /* The blue bar container */
     nav {
-        position: fixed !important;
-        top: 50px !important; /* Stays below the top info bar */
-        left: 0;
-        width: 100%;
-        height: 60px !important; /* Force height so it's visible */
-        background: #1565c0 !important;
-        z-index: 10001 !important;
-        display: block !important;
-    }
-
-    .hamburger-btn {
-        display: flex !important; /* Force flex display */
-        flex-direction: column;
-        justify-content: center;
+        display: flex !important;
+        justify-content: flex-end; /* Puts hamburger on the right */
         align-items: center;
-        width: 50px;
-        height: 50px;
-        position: absolute;
-        right: 10px;
-        top: 5px;
-        cursor: pointer;
-        z-index: 10002;
+        height: 60px !important;
+        background: #1565c0 !important;
+        position: fixed !important;
+        top: 50px !important;
+        width: 100%;
+        z-index: 10001 !important;
+        overflow: visible !important; /* Allow menu to hang out of the bottom */
     }
 
-    .hamburger-btn span {
-        display: block;
-        width: 25px;
-        height: 3px;
-        background: white !important; /* Ensure lines are white */
-        margin: 3px 0;
-    }
-
+    /* The actual list of links */
     nav ul {
-        display: none; 
+        display: none; /* Default hidden */
         flex-direction: column;
+        position: absolute;
+        top: 60px; /* Right at the bottom of the nav bar */
+        left: 0;
         width: 100%;
         background: #1565c0;
-        position: absolute;
-        top: 60px; /* Starts right at the bottom of the nav bar */
-        left: 0;
         padding: 0;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        margin: 0;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        z-index: 10002 !important;
     }
 
-    /* Force show the menu */
+    /* The magic class that opens the menu */
     nav ul.show {
-        display: flex !important;
+        display: flex !important; /* Forces it to show */
     }
 
     nav ul li {
-        border-bottom: 1px solid rgba(255,255,255,0.1);
+        width: 100%;
+        text-align: center;
+        border-top: 1px solid rgba(255,255,255,0.1);
     }
 
     nav ul li a {
-        padding: 15px;
         display: block;
-        color: white;
+        padding: 15px;
+        color: white !important;
+        text-decoration: none;
+        font-size: 18px;
     }
 }
