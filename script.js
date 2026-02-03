@@ -121,3 +121,12 @@ function toggleMenu() {
         console.error("Could not find navLinks ID");
     }
 }
+// Auto-close menu when a link is clicked
+document.querySelectorAll('#navLinks a').forEach(link => {
+    link.addEventListener('click', () => {
+        const navLinks = document.getElementById('navLinks');
+        if (navLinks.classList.contains('show')) {
+            navLinks.classList.remove('show');
+        }
+    });
+});
