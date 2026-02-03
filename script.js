@@ -135,3 +135,11 @@ function toggleMenu() {
         navLinks.classList.toggle('show');
     }
 }
+function toggleMenu() {
+    var x = document.getElementById("navLinks");
+    if (x.classList.contains("show")) {
+        x.classList.remove("show");
+    } else {
+        x.classList.add("show");
+    }
+}
