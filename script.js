@@ -112,15 +112,20 @@ if (eligibilityForm) {
 /* =========================================
    3. HAMBURGER MENU TOGGLE
    ========================================= */
-function toggleMenu() {
-    console.log("Hamburger clicked!"); // This helps us check if the click works
+document.addEventListener('DOMContentLoaded', () => {
+    const menuBtn = document.getElementById('menuBtn');
     const navLinks = document.getElementById('navLinks');
-    
-    if (!navLinks) {
-        console.error("Could not find element with id 'navLinks'");
-        return;
-    }
 
-    navLinks.classList.toggle('show');
-    console.log("Menu classes:", navLinks.className);
-}
+    if (menuBtn && navLinks) {
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevents the click from bubbling
+            navLinks.classList.toggle('show');
+            console.log("Menu toggled!");
+        });
+
+        // Optional: Close menu if clicking anywhere else on screen
+        document.addEventListener('click', () => {
+            navLinks.classList.remove('show');
+        });
+    }
+});
