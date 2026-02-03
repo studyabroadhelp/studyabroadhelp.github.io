@@ -621,62 +621,65 @@ nav ul li a.active {
     margin: 2px 0;
     transition: 0.4s;
 }
+/* Update this in your CSS */
 @media (max-width: 768px) {
-    /* Ensure the nav container is above everything else */
     nav {
         position: fixed !important;
-        top: 50px !important; 
-        left: 0 !important;
-        width: 100% !important;
-        height: 50px !important;
-        background-color: #1565c0 !important;
+        top: 50px !important; /* Stays below the top info bar */
+        left: 0;
+        width: 100%;
+        height: 60px !important; /* Force height so it's visible */
+        background: #1565c0 !important;
+        z-index: 10001 !important;
         display: block !important;
-        overflow: visible !important; 
-        z-index: 10001 !important; /* Higher than top-info-bar */
     }
 
     .hamburger-btn {
-        display: flex !important;
-        position: absolute;
-        right: 15px;
-        top: 10px;
-        width: 40px; /* Bigger touch target */
-        height: 30px;
+        display: flex !important; /* Force flex display */
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        z-index: 10002 !important;
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        right: 10px;
+        top: 5px;
         cursor: pointer;
+        z-index: 10002;
     }
 
-    /* Force the menu to drop down correctly */
-    #navLinks {
-        display: none !important; /* Hidden by default */
+    .hamburger-btn span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background: white !important; /* Ensure lines are white */
+        margin: 3px 0;
+    }
+
+    nav ul {
+        display: none; 
         flex-direction: column;
         width: 100%;
         background: #1565c0;
         position: absolute;
-        top: 50px; 
+        top: 60px; /* Starts right at the bottom of the nav bar */
         left: 0;
-        padding: 10px 0;
-        text-align: center;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        padding: 0;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
     }
 
-    /* The "Show" class that JS triggers */
-    #navLinks.show {
+    /* Force show the menu */
+    nav ul.show {
         display: flex !important;
     }
 
     nav ul li {
-        margin: 0;
-        width: 100%;
         border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
     nav ul li a {
+        padding: 15px;
         display: block;
-        padding: 15px 0;
-        color: white !important;
-        text-decoration: none;
+        color: white;
     }
 }
