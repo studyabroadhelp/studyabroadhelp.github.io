@@ -658,16 +658,14 @@ nav ul li a.active {
     }
 
     /* 4. Triggered by JavaScript */
-    nav ul.show {
+        nav ul.show {
         display: flex !important;
     }
 
     nav ul li { margin: 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
     nav ul li a { padding: 15px; display: block; color: white !important; }
-@media (max-width: 768px) {
-    /* ... your existing hamburger and nav code ... */
 
-    /* ADD THE NEW FIXES HERE */
+    /* --- NEW HEADER SHRINK FIXES --- */
     .top-info-bar {
         height: 50px !important;
         padding: 0 10px !important;
@@ -683,4 +681,6 @@ nav ul li a.active {
     .top-right a {
         font-size: 11px !important;
     }
-  }
+    /* ------------------------------ */
+
+} /* This is the FINAL bracket that closes the entire @media section */
