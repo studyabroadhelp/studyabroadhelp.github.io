@@ -621,27 +621,35 @@ nav ul li a.active {
     margin: 2px 0;
     transition: 0.4s;
 }
-
 @media (max-width: 768px) {
-    .hamburger-btn { display: flex; } /* Show on Mobile */
+    .hamburger-btn { 
+        display: flex; 
+        position: absolute;
+        right: 20px; /* Aligns it to the right */
+        top: 10px;
+    }
 
     nav ul {
-        display: none; /* Hide links by default on mobile */
+        display: none; /* Keep hidden by default */
         flex-direction: column;
         width: 100%;
         background: #1565c0;
         position: absolute;
-        top: 100%;
+        top: 100%; /* Sits right below the nav bar */
         left: 0;
         padding: 20px 0;
         text-align: center;
         box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+        z-index: 10001; /* Higher than hero and bars */
     }
 
-    /* This class will be added by JavaScript when you click */
+    /* This class is toggled by your script.js */
     nav ul.show {
-        display: flex;
+        display: flex !important; 
     }
 
-    nav ul li { margin: 15px 0; }
+    nav ul li { 
+        margin: 15px 0; 
+        width: 100%; 
+    }
 }
