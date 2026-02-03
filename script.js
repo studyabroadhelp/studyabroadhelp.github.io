@@ -109,3 +109,17 @@ if (eligibilityForm) {
         }
     });
 }
+/* =========================================
+   3. HAMBURGER MENU TOGGLE
+   ========================================= */
+function toggleMenu() {
+    const navLinks = document.getElementById('navLinks');
+    navLinks.classList.toggle('show');
+}
+
+// Close menu when a link is clicked
+document.querySelectorAll('#navLinks a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.getElementById('navLinks').classList.remove('show');
+    });
+});
