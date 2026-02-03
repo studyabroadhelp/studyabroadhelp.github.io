@@ -123,3 +123,15 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         document.getElementById('navLinks').classList.remove('show');
     });
 });
+function toggleMenu() {
+    const navLinks = document.getElementById('navLinks');
+    
+    // Debugging line: Open your phone browser console to see if this triggers
+    console.log("Menu button clicked!"); 
+    
+    if (navLinks) {
+        navLinks.classList.toggle('show');
+    } else {
+        console.error("Error: Could not find the element with ID 'navLinks'");
+    }
+}
