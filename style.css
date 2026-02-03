@@ -593,7 +593,12 @@ nav ul li a.active {
 }
 
 @media (max-width: 768px) {
-    .hero-slider { height: 350px; } /* Makes picture fit better on phone screen */
+     .hero-slider { 
+        height: 300px !important; 
+    } 
+    .slide {
+        width: 20% !important; /* Keeps the math perfect on mobile */
+    }
     .hero-content h1 { font-size: 1.8rem; }
     .hero-content p { font-size: 1rem; }
 }
