@@ -622,45 +622,65 @@ nav ul li a.active {
     transition: 0.4s;
 }
 @media (max-width: 768px) {
+    /* 1. Fix the Nav Bar container */
     nav {
         position: fixed !important;
-        display: block !important;
-        height: 50px !important; /* Fixed height for the bar */
+        top: 50px !important; /* Stays below top-info-bar */
+        left: 0 !important;
         width: 100% !important;
-        overflow: visible !important; /* CRITICAL: Allows the menu to drop down outside the bar */
+        height: 50px !important; /* Height of the blue bar */
+        display: block !important;
+        overflow: visible !important; /* ALLOWS MENU TO DROP DOWN */
+        z-index: 9999 !important;
     }
 
-    /* 2. Position the Hamburger clearly on the right */
+    /* 2. Position the Hamburger Button */
     .hamburger-btn {
         display: flex !important;
         position: absolute;
-        right: 20px;
-        top: 7px; /* Adjust based on your nav height */
+        right: 15px; /* Spacing from right edge */
+        top: 50%;
+        transform: translateY(-50%); /* Perfectly centers vertically */
         z-index: 10002;
     }
 
-    /* 3. Fix the Menu List */
+    /* 3. The Dropdown Menu Styles */
     nav ul {
-        display: none; 
+        display: none; /* Hidden by default */
         flex-direction: column;
         width: 100%;
         background: #1565c0;
         position: absolute;
-        top: 50px; /* Aligns with the bottom of the nav bar */
+        top: 50px; /* Starts exactly where the nav bar ends */
         left: 0;
-        padding: 20px 0;
+        padding: 10px 0;
         text-align: center;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+        box-shadow: 0 8px 15px rgba(0,0,0,0.3);
         z-index: 10001;
+        border-top: 1px solid rgba(255,255,255,0.1);
     }
 
-    /* 4. The Critical Fix: Force display when active */
+    /* 4. Show the menu when JS toggles the class */
     nav ul.show {
         display: flex !important;
     }
 
+    /* 5. Style the individual links for mobile */
     nav ul li {
-        margin: 10px 0;
+        margin: 0;
         width: 100%;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 15px 0;
+        font-size: 16px;
+        width: 100%;
+    }
+
+    /* Push body down so content isn't hidden */
+    body {
+        margin-top: 100px !important; 
     }
 }
