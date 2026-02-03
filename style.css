@@ -597,3 +597,43 @@ nav ul li a.active {
     .hero-content h1 { font-size: 1.8rem; }
     .hero-content p { font-size: 1rem; }
 }
+/* HAMBURGER STYLING */
+.hamburger-btn {
+    display: none; /* Hidden on Desktop */
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+    margin-left: 15px;
+}
+
+.hamburger-btn span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 2px 0;
+    transition: 0.4s;
+}
+
+@media (max-width: 768px) {
+    .hamburger-btn { display: flex; } /* Show on Mobile */
+
+    nav ul {
+        display: none; /* Hide links by default on mobile */
+        flex-direction: column;
+        width: 100%;
+        background: #1565c0;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 20px 0;
+        text-align: center;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    }
+
+    /* This class will be added by JavaScript when you click */
+    nav ul.show {
+        display: flex;
+    }
+
+    nav ul li { margin: 15px 0; }
+}
