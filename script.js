@@ -112,13 +112,10 @@ if (eligibilityForm) {
 /* =========================================
    3. HAMBURGER MENU TOGGLE
    ========================================= */
-
-
 function toggleMenu() {
-    var x = document.getElementById("navLinks");
-    if (x.classList.contains("show")) {
-        x.classList.remove("show");
-    } else {
-        x.classList.add("show");
+    const navLinks = document.getElementById("navLinks");
+    if (navLinks) {
+        navLinks.classList.toggle("show");
+        console.log("Menu Toggled"); // Check your browser console to see this!
     }
 }
