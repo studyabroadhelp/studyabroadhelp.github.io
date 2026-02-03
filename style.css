@@ -623,73 +623,45 @@ nav ul li a.active {
 }
 /* Update this in your CSS */
 @media (max-width: 768px) {
-    /* 1. Force the Hamburger Button to APPEAR */
+    /* 1. Make Hamburger Visible */
     .hamburger-btn {
-        display: flex !important; /* This was missing! */
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 45px;
-        height: 45px;
-        cursor: pointer;
+        display: flex !important; /* Forces it to show on mobile */
         position: absolute;
         right: 15px;
-        top: 5px;
-        z-index: 10005;
+        top: 10px;
+        z-index: 10005 !important; 
     }
 
-    .hamburger-btn span {
-        display: block;
-        width: 25px;
-        height: 3px;
-        background: white !important;
-        margin: 3px 0;
-    }
-
-    /* 2. Fix the Nav Bar container */
+    /* 2. Fix the Nav Bar */
     nav {
-        display: flex !important;
+        position: fixed !important;
+        top: 50px !important; /* Stay below the info bar */
+        left: 0;
+        width: 100% !important;
         height: 55px !important;
         background: #1565c0 !important;
-        position: fixed !important;
-        top: 50px !important; /* Sits below the top-info-bar */
-        left: 0;
-        width: 100%;
-        z-index: 10001 !important;
+        z-index: 10000 !important;
         overflow: visible !important;
     }
 
-    /* 3. The actual list of links */
+    /* 3. The Dropdown Menu */
     nav ul {
-        display: none !important; /* Hidden by default */
+        display: none !important; /* Start hidden */
         flex-direction: column !important;
         position: absolute;
-        top: 55px; 
+        top: 55px;
         left: 0;
         width: 100%;
         background: #1565c0;
-        padding: 10px 0;
-        margin: 0;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-        z-index: 10002 !important;
+        padding: 0;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
     }
 
-    /* 4. This is what the JavaScript triggers */
+    /* 4. Triggered by JavaScript */
     nav ul.show {
         display: flex !important;
     }
 
-    nav ul li {
-        width: 100%;
-        text-align: center;
-        margin: 0;
-    }
-
-    nav ul li a {
-        display: block;
-        padding: 15px;
-        color: white !important;
-        font-size: 16px;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
+    nav ul li { margin: 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    nav ul li a { padding: 15px; display: block; color: white !important; }
 }
