@@ -113,9 +113,11 @@ if (eligibilityForm) {
    3. HAMBURGER MENU TOGGLE
    ========================================= */
 function toggleMenu() {
-    const navLinks = document.getElementById("navLinks");
+    console.log("Button clicked!"); // If you see this in console, JS is working
+    const navLinks = document.getElementById('navLinks');
     if (navLinks) {
-        navLinks.classList.toggle("show");
-        console.log("Menu Toggled"); // Check your browser console to see this!
+        navLinks.classList.toggle('show');
+    } else {
+        console.error("Could not find navLinks ID");
     }
 }
