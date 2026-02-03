@@ -622,12 +622,12 @@ nav ul li a.active {
     transition: 0.4s;
 }
 @media (max-width: 768px) {
-    /* 1. Ensure the Nav bar has a relative position for the button to anchor to */
     nav {
         position: fixed !important;
-        display: block !important; /* Changed from flex to block for easier positioning */
-        height: auto;
-        min-height: 45px;
+        display: block !important;
+        height: 50px !important; /* Fixed height for the bar */
+        width: 100% !important;
+        overflow: visible !important; /* CRITICAL: Allows the menu to drop down outside the bar */
     }
 
     /* 2. Position the Hamburger clearly on the right */
@@ -641,16 +641,16 @@ nav ul li a.active {
 
     /* 3. Fix the Menu List */
     nav ul {
-        display: none; /* Stay hidden until 'show' class is added */
+        display: none; 
         flex-direction: column;
         width: 100%;
         background: #1565c0;
         position: absolute;
-        top: 45px; /* Directly below the hamburger bar */
+        top: 50px; /* Aligns with the bottom of the nav bar */
         left: 0;
-        padding: 10px 0;
+        padding: 20px 0;
         text-align: center;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+        box-shadow: 0 5px 10px rgba(0,0,0,0.3);
         z-index: 10001;
     }
 
