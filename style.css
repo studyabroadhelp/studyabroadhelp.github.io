@@ -623,51 +623,73 @@ nav ul li a.active {
 }
 /* Update this in your CSS */
 @media (max-width: 768px) {
-    /* The blue bar container */
-    nav {
-        display: flex !important;
-        justify-content: flex-end; /* Puts hamburger on the right */
+    /* 1. Force the Hamburger Button to APPEAR */
+    .hamburger-btn {
+        display: flex !important; /* This was missing! */
+        flex-direction: column;
+        justify-content: center;
         align-items: center;
-        height: 60px !important;
-        background: #1565c0 !important;
-        position: fixed !important;
-        top: 50px !important;
-        width: 100%;
-        z-index: 10001 !important;
-        overflow: visible !important; /* Allow menu to hang out of the bottom */
+        width: 45px;
+        height: 45px;
+        cursor: pointer;
+        position: absolute;
+        right: 15px;
+        top: 5px;
+        z-index: 10005;
     }
 
-    /* The actual list of links */
+    .hamburger-btn span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background: white !important;
+        margin: 3px 0;
+    }
+
+    /* 2. Fix the Nav Bar container */
+    nav {
+        display: flex !important;
+        height: 55px !important;
+        background: #1565c0 !important;
+        position: fixed !important;
+        top: 50px !important; /* Sits below the top-info-bar */
+        left: 0;
+        width: 100%;
+        z-index: 10001 !important;
+        overflow: visible !important;
+    }
+
+    /* 3. The actual list of links */
     nav ul {
-        display: none; /* Default hidden */
-        flex-direction: column;
+        display: none !important; /* Hidden by default */
+        flex-direction: column !important;
         position: absolute;
-        top: 60px; /* Right at the bottom of the nav bar */
+        top: 55px; 
         left: 0;
         width: 100%;
         background: #1565c0;
-        padding: 0;
+        padding: 10px 0;
         margin: 0;
         box-shadow: 0 10px 20px rgba(0,0,0,0.5);
         z-index: 10002 !important;
     }
 
-    /* The magic class that opens the menu */
+    /* 4. This is what the JavaScript triggers */
     nav ul.show {
-        display: flex !important; /* Forces it to show */
+        display: flex !important;
     }
 
     nav ul li {
         width: 100%;
         text-align: center;
-        border-top: 1px solid rgba(255,255,255,0.1);
+        margin: 0;
     }
 
     nav ul li a {
         display: block;
         padding: 15px;
         color: white !important;
-        text-decoration: none;
-        font-size: 18px;
+        font-size: 16px;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 }
