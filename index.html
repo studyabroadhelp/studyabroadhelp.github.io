@@ -351,74 +351,7 @@ and student life in Kyrgyzstan without any consultant and false promises.
   <img src="images/whatsapp-icon.png" alt="WhatsApp">
 </a>
 
-<script>
-const whatsappBtn = document.getElementById('whatsappBtn');
 
-let isDragging = false;
-let offsetX, offsetY;
-
-whatsappBtn.addEventListener('mousedown', startDrag);
-whatsappBtn.addEventListener('touchstart', startDrag);
-
-function startDrag(e) {
-  isDragging = true;
-  e.preventDefault();
-  const rect = whatsappBtn.getBoundingClientRect();
-
-  if(e.type === 'touchstart'){
-    offsetX = e.touches[0].clientX - rect.left;
-    offsetY = e.touches[0].clientY - rect.top;
-  } else {
-    offsetX = e.clientX - rect.left;
-    offsetY = e.clientY - rect.top;
-  }
-
-  document.addEventListener('mousemove', drag);
-  document.addEventListener('mouseup', stopDrag);
-  document.addEventListener('touchmove', drag);
-  document.addEventListener('touchend', stopDrag);
-}
-
-function drag(e) {
-  if(!isDragging) return;
-
-  let clientX, clientY;
-  if(e.type === 'touchmove'){
-    clientX = e.touches[0].clientX;
-    clientY = e.touches[0].clientY;
-  } else {
-    clientX = e.clientX;
-    clientY = e.clientY;
-  }
-
-  let left = clientX - offsetX;
-  let top = clientY - offsetY;
-
-  // Prevent button from going outside viewport
-  const btnWidth = whatsappBtn.offsetWidth;
-  const btnHeight = whatsappBtn.offsetHeight;
-  const maxLeft = window.innerWidth - btnWidth;
-  const maxTop = window.innerHeight - btnHeight;
-
-  if(left < 0) left = 0;
-  if(top < 0) top = 0;
-  if(left > maxLeft) left = maxLeft;
-  if(top > maxTop) top = maxTop;
-
-  whatsappBtn.style.left = left + 'px';
-  whatsappBtn.style.top = top + 'px';
-  whatsappBtn.style.right = 'auto';
-  whatsappBtn.style.bottom = 'auto';
-}
-
-function stopDrag() {
-  isDragging = false;
-  document.removeEventListener('mousemove', drag);
-  document.removeEventListener('mouseup', stopDrag);
-  document.removeEventListener('touchmove', drag);
-  document.removeEventListener('touchend', stopDrag);
-}
-</script>
 <!-- Sticky Apply Now (Mobile Only) -->
 <a href="#apply" class="sticky-apply">
   Apply Now
@@ -453,43 +386,6 @@ document.getElementById('applyOverlay').addEventListener('click', function() {
     triggerEligibilityFlow("Form Locked!", "Please complete the 30-second Eligibility Test below to unlock this application form.");
 });
 
-// 3. Handle Eligibility Form Submission
-document.getElementById('eligibilityForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const isPcb = document.getElementById('pcb').value;
-    const isNeet = document.getElementById('neet').value;
-    const percentage = document.getElementById('percentage').value;
-
-    if (isPcb === 'yes' && isNeet === 'yes' && percentage !== 'below') {
-        // SUCCESS MESSAGE
-        triggerEligibilityFlow("Congratulations!", "You are ELIGIBLE! Unlocking your Application Form now...");
-        
-        // UNLOCK THE APPLY FORM
-        setTimeout(() => {
-            const applyForm = document.getElementById('applyForm');
-            const inputs = applyForm.querySelectorAll('input, select, button');
-            
-            inputs.forEach(el => el.disabled = false); // Enable all fields
-            applyForm.querySelector('button').style.background = "#28a745";
-            applyForm.querySelector('button').innerText = "Submit Application (Unlocked)";
-            
-            // Remove the overlay so they can type
-            document.getElementById('applyOverlay').style.display = 'none';
-            document.getElementById('applyLockMsg').style.display = 'none';
-            
-            // Scroll back to the Apply Form
-            document.getElementById('apply').scrollIntoView({ behavior: 'smooth' });
-        }, 2500);
-
-    } else {
-        // NOT ELIGIBLE MESSAGE
-        const result = document.getElementById('eligibilityResult');
-        result.style.display = 'block';
-        result.style.color = 'red';
-        result.innerText = "❌ Sorry, based on your marks/NEET status, you do not meet the minimum criteria.";
-    }
-});
 
 // 4. Final Application Success
 document.getElementById('applyForm').onsubmit = function() {
