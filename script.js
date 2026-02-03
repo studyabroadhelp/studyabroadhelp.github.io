@@ -129,12 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-function toggleMenu() {
-    const navLinks = document.getElementById('navLinks');
-    if (navLinks) {
-        navLinks.classList.toggle('show');
-    }
-}
+
 function toggleMenu() {
     var x = document.getElementById("navLinks");
     if (x.classList.contains("show")) {
