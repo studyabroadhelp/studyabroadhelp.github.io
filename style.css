@@ -622,34 +622,45 @@ nav ul li a.active {
     transition: 0.4s;
 }
 @media (max-width: 768px) {
-    .hamburger-btn { 
-        display: flex; 
-        position: absolute;
-        right: 20px; /* Aligns it to the right */
-        top: 10px;
+    /* 1. Ensure the Nav bar has a relative position for the button to anchor to */
+    nav {
+        position: fixed !important;
+        display: block !important; /* Changed from flex to block for easier positioning */
+        height: auto;
+        min-height: 45px;
     }
 
+    /* 2. Position the Hamburger clearly on the right */
+    .hamburger-btn {
+        display: flex !important;
+        position: absolute;
+        right: 20px;
+        top: 7px; /* Adjust based on your nav height */
+        z-index: 10002;
+    }
+
+    /* 3. Fix the Menu List */
     nav ul {
-        display: none; /* Keep hidden by default */
+        display: none; /* Stay hidden until 'show' class is added */
         flex-direction: column;
         width: 100%;
         background: #1565c0;
         position: absolute;
-        top: 100%; /* Sits right below the nav bar */
+        top: 45px; /* Directly below the hamburger bar */
         left: 0;
-        padding: 20px 0;
+        padding: 10px 0;
         text-align: center;
         box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-        z-index: 10001; /* Higher than hero and bars */
+        z-index: 10001;
     }
 
-    /* This class is toggled by your script.js */
+    /* 4. The Critical Fix: Force display when active */
     nav ul.show {
-        display: flex !important; 
+        display: flex !important;
     }
 
-    nav ul li { 
-        margin: 15px 0; 
-        width: 100%; 
+    nav ul li {
+        margin: 10px 0;
+        width: 100%;
     }
 }
