@@ -567,39 +567,33 @@ nav ul li a.active {
 }
 
 .uni-fee-table th { background: #f8f9fa; }
-/* --- ULTIMATE SLIDER FIX --- */
+/* --- THE ULTIMATE SLIDER FIX --- */
 .hero-slider {
     width: 100%;
-    height: 450px; /* Forces height so it's not tiny */
-    overflow: hidden; /* This hides the 'overlapping' parts of other images */
+    height: 450px; 
+    overflow: hidden; /* Hides the images that are 'outside' the frame */
     position: relative;
-    background: #000; /* Black background in case images load slowly */
+    background: #000;
 }
 
 .slider-track {
     display: flex;
-    width: 500%; /* Total width for 5 images */
+    width: 100%; /* Change this from 500% to 100% */
     height: 100%;
     transition: transform 0.5s ease-in-out;
 }
 
 .slide {
-    width: 20%; /* Each slide is exactly 1/5th of the 500% track */
-    flex: 0 0 20%; /* Prevents the slide from shrinking or growing */
+    flex: 0 0 100%; /* LOCKS each slide to exactly 100% of the screen */
+    min-width: 100%; /* Prevents shrinking */
     height: 100%;
-    background-size: cover; 
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    display: flex;
-    align-items: center;
-    padding: 0 6%;
 }
 
-/* Mobile adjustments to keep it looking good */
 @media (max-width: 768px) {
-    .hero-slider {
-        height: 350px; /* Gives it enough height on mobile */
-    }
+    .hero-slider { height: 350px !important; }
 }
     .hero-content h1 { font-size: 1.8rem; }
     .hero-content p { font-size: 1rem; }
