@@ -701,3 +701,55 @@ nav ul li a.active {
     opacity: 0.7;
     border: 1px dashed #ccc;
 }
+.accreditation-bar {
+    background: #fff;
+    padding: 20px 0;
+    margin: 0 auto; /* Remove the standard section margin to stick it closer to hero */
+    border-bottom: 1px solid #eee;
+}
+
+.accreditation-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+.acc-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    min-width: 120px;
+}
+
+.acc-item img {
+    height: 50px; /* Uniform height for logos */
+    width: auto;
+    filter: grayscale(100%); /* Keeps it professional */
+    opacity: 0.7;
+    transition: 0.3s;
+    margin-bottom: 8px;
+}
+
+.acc-item:hover img {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+.acc-item span {
+    font-size: 12px;
+    font-weight: 700;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+    .acc-item { flex: 0 0 45%; } /* 2 logos per row on mobile */
+    .acc-item img { height: 40px; }
+}
