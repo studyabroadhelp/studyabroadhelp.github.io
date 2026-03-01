@@ -81,27 +81,11 @@ nav ul li a {
 /* 3. HERO SECTION */
 .hero { 
     width: 100%; 
-    height: 450px; /* Fixed height for the frame */
+    height: 450px; 
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url("images/w-kyrg.png") center/cover no-repeat; 
     display: flex; 
     align-items: center; 
     padding: 0 6%;
-    /* These properties ensure the image fits the frame */
-    background-size: cover !important; 
-    background-position: center center !important;
-    background-repeat: no-repeat;
-    /* Remove fixed attachment if the image looks too zoomed in */
-    background-attachment: scroll; 
-}
-
-/* Mobile Adjustment */
-@media (max-width: 768px) {
-    .hero {
-        height: 300px; /* Smaller frame for mobile */
-        background-attachment: scroll !important; /* Fixed background breaks on many mobile browsers */
-    }
-    .hero-content h1 {
-        font-size: 24px;
-    }
 }
 
 .hero-content { color: #fff; max-width: 700px; }
